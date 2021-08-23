@@ -24,16 +24,6 @@
         "network": "linkedin",
         "username": "aiden-swann",
         "url": "https://www.linkedin.com/in/aidenswann/"
-      },
-      {
-        "network": "twitter",
-        "username": "mollymal",
-        "url": "http://twitter.com/changeme"
-      },
-      {
-        "network": "instagram",
-        "username": "molly",
-        "url": "http://instagram.com/changeme"
       }
     ]
   },
@@ -58,52 +48,52 @@
   ],
   "skills": [
     {
-      "name": "Languages and Frameworks",
+      "name": "Software",
       "level": "",
       "keywords": [
-        "C",
         "C++",
         "Java",
-        "Javascript",
-        "Assembly",
-        "Common Lisp"
+        "Matlab",
+        "Python",
+        "Machine Learning"
       ]
     },
     {
-      "name": "Toolsets/OS",
+      "name": "Hardware",
       "level": "",
       "keywords": [
-        "MacOS",
-        "Ubuntu",
-        "Git/GitHub",
-        "g++",
-        "TI LaunchPad"
+        "Solidworks",
+        "ANSYS",
+        "Machining"
       ]
     }
   ],
   "education": [
     {
-      "institution": "University of Hawaii, Honolulu, HI",
-      "area": "Computer Science (expected Spring, 2018)",
+      "institution": "California Institute of Technology, Pasadena, CA",
+      "area": "Mechanical Engineering (May, 2023)",
       "studyType": "B.S.",
-      "startDate": "2013-09-01",
+      "startDate": "2019-09-01",
       "endDate": "Present",
-      "gpa": "",
-      "courses": [
+      "gpa": "4.0/4.0",
+      "courses": [{"test course":"description of test course"}
       ]
     }
   ],
   "work": [
     {
-      "company": "UH Manoa Board of Publications",
-      "position": "Web Developer",
+      "company": "AMBER Lab, Caltech, Pasadena CA",
+      "position": "Mechanical Engineering Intern",
       "website": "",
-      "startDate": "2015-08-01",
+      "startDate": "2021-05-01",
       "endDate": "Present",
-      "summary": "Head of online presence for Ka Leo",
+      "summary": "",
       "highlights": [
-        "Maintain, update, and oversee official college newspaper website",
-        "Drive, design and build student-community projects for UH Manoa"
+        "Designed and constructed agile quadrotor drone with inhouse autonomy software and hardware",
+        "Implemented safety guarantees with control barrier functions on quadrotors (extensive C++)",
+        "Learn to Fly system allows beginners to operate drones safely with autonomy in background"
+
+
       ]
     },
     {
