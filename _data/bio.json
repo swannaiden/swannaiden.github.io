@@ -107,7 +107,7 @@
       "summary": "",
       "highlights": [
         "Troubleshoot software, hardware and networking issues over the phone",
-        "Answer phone and email responses to the ITS Help Desk"
+        "Answer phone and email responses to the ITS Help Desk",
         "Developed ML (Segnet, Unet, Resnet) to identify manufacturing defects at production scale",
         "Utilized open-source ML libraries to implement network architectures found in academia",
         "Custom ML annotation tools save 20,000 hours of operator inspection time per year (1 year later)"
