@@ -1,29 +1,29 @@
 {
   "basics": {
-    "name": "Molly Maluhia",
+    "name": "Aiden Swann",
     "label": "Student",
-    "picture": "https://techfolios.github.io/template/images/molly.png",
-    "email": "molly@hawaii.edu",
-    "phone": "808-333-4444",
-    "website": "https://mmaluhia.github.io",
-    "summary": "I am studying for a B.S. in Computer Science in the Department of Information and Computer Sciences at the University of Hawaii. I expect to graduate in Spring, 2020.",
+    "picture": "https://techfolios.github.io/template/images/profile.png",
+    "email": "aswann@caltech.edu",
+    "phone": "612-834-4409",
+    "website": "https://www.aidenswann.com",
+    "summary": "I am studying for a B.S. in Mechanical Engineering at California Institute of Technology. I expect to graduate in Spring, 2023.",
     "location": {
-      "address": "",
-      "postalCode": "96822",
-      "city": "Honolulu",
+      "address": "6710",
+      "postalCode": "55439",
+      "city": "Edina",
       "countryCode": "USA",
-      "region": "Hawaii"
+      "region": "Minnesota"
     },
     "profiles": [
       {
         "network": "github",
-        "username": "mmaluhia",
-        "url": "http://github.com/changeme"
+        "username": "swannaiden",
+        "url": "http://github.com/swannaiden"
       },
       {
         "network": "linkedin",
-        "username": "mollymaluhia",
-        "url": "http://linkedin.com/in/changeme"
+        "username": "aiden-swann",
+        "url": "https://www.linkedin.com/in/aidenswann/"
       },
       {
         "network": "twitter",
