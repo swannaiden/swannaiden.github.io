@@ -162,7 +162,7 @@
     }
   ],
   "volunteer": [
-    {"name": "CS21", "description": "decidability and tracibility"}
+    {"name": "CS21", "descriptions": "decidability and tracibility"}
   ],
   "references": [
     {
