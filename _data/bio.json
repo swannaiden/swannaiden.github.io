@@ -74,7 +74,7 @@
       "area": "Mechanical Engineering (May, 2023)",
       "studyType": "B.S.",
       "startDate": "2019-09-01",
-      "endDate": "Present",
+      "endDate": "2023",
       "gpa": "4.0/4.0",
       "courses": ["Mechanics (3 terms)",	"Thermal Science (3 terms)", "Design and Fabrication",
       "Applied Partial Differential Equations",	"Linear Systems Theory",	"Intro to Feedback Control Systems"
@@ -102,8 +102,7 @@
       "company": "Seagate Technology, Bloomington MN",
       "position": "Machine Learning Intern",
       "website": "",
-      "startDate": "2020",
-      "endDate": "",
+      "startDate": "Summer 2020",
       "summary": "",
       "highlights": [
         "Developed ML (Segnet, Unet, Resnet) to identify manufacturing defects at production scale",
