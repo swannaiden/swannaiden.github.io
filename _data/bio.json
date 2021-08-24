@@ -167,8 +167,12 @@
     {"name": "Me12c", "descriptions": "Systems of Particles, Kinetics of Rigid Bodies in Three Dimensions, Mechanical Vibrations"},
     {"name": "Me11a", "descriptions": "First and second laws of thermodynamics for closed and open systems"},
     {"name": "Me11b", "descriptions": "Gas power cycles for power and propulsion, Vapor power cycles, Refrigeration cycles, Thermochemistry and Chemical equilibrium, Combustion"},
-    {"name": "Me11c", "descriptions": "decidability and tracibility"},
-    {"name": "CS21", "descriptions": "decidability and tracibility"}
+    {"name": "Me11c", "descriptions": "Fluid motion, Compressibility, Viscous internal and external flow, Boundary layers (laminar and turbulent)"},
+    {"name": "ME14", "descriptions": "Design, Fabrication, GD&T, advanced CAD and CAM"},
+    {"name": "ACM104", "descriptions": "Applied Linear Algebra"},
+    {"name": "ACM95ab", "descriptions": "Analysis and applied partial differential equations"},
+    {"name": "CDS110", "descriptions": "Introduction to feedback control systems"}
+
   ],
   "references": [
     {
