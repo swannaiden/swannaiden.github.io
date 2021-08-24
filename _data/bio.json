@@ -6,7 +6,7 @@
     "email": "aswann@caltech.edu",
     "phone": "612-834-4409",
     "website": "https://www.aidenswann.com",
-    "summary": "Mechanical engineering major, control and dynamical systems minor graduating 2023 at Caltech. Currently working with the AMBER lab at Caltech on high speed collision avoidance with drones. I'm passionate about all things mechanical, especially aerospace and robotics. 3+ years of internship experience across a variety of skill sets: mechanical design, machine learning and electrical integration. Seeking to leverage my experience with multidisciplinary projects and cross-team collaboration at a mechanical internship this upcoming summer.",
+    "summary": "Mechanical engineering major, control and dynamical systems minor graduating 2023 at Caltech. Currently working with the AMBER lab at Caltech on high speed collision avoidance with drones. Seeking a mechanical internship.",
     "location": {
       "address": "6710",
       "postalCode": "55439",
@@ -97,6 +97,7 @@
       "institution": "California Institute of Technology, Pasadena, CA",
       "area": "Mechanical Engineering (May, 2023)",
       "studyType": "B.S.",
+      "minor": "Control and Dynamical Systems Minor",
       "startDate": "2019-09-01",
       "endDate": "2023",
       "gpa": "4.0/4.0"
