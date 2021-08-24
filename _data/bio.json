@@ -29,6 +29,26 @@
   },
   "interests": [
     {
+      "name": "film photography",
+      "keywords": [
+      ]
+    },
+    {
+      "name": "digital photography",
+      "keywords": [
+      ]
+    },
+    {
+      "name": "mountain biking",
+      "keywords": [
+      ]
+    },
+    {
+      "name": "science fiction",
+      "keywords": [
+      ]
+    },
+    {
       "name": "autonomous robotics",
       "keywords": [
       ]
