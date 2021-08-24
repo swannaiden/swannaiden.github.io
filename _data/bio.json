@@ -166,7 +166,7 @@
     {"name": "Me12b", "descriptions": "Virtual work, Distributed force systems, Static analysis of rigid and deformable structures, Kinematics, Rigid-body dynamics"},
     {"name": "Me12c", "descriptions": "Systems of Particles, Kinetics of Rigid Bodies in Three Dimensions, Mechanical Vibrations"},
     {"name": "Me11a", "descriptions": "First and second laws of thermodynamics for closed and open systems"},
-    {"name": "Me11b", "descriptions": "Gas power cycles for power and propulsion, Vapor power cycles, Refrigeration cycles, Thermochemistry and Chemical equilibrium, Combustion"},
+    {"name": "Me11b", "descriptions": "Gas power cycles for power and propulsion, Vapor power cycles, Refrigeration cycles, Thermochemistry and chemical equilibrium"},
     {"name": "Me11c", "descriptions": "Fluid motion, Compressibility, Viscous internal and external flow, Boundary layers (laminar and turbulent)"},
     {"name": "ME14", "descriptions": "Design, Fabrication, GD&T, advanced CAD and CAM"},
     {"name": "ACM104", "descriptions": "Applied Linear Algebra"},
