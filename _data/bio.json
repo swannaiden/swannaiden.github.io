@@ -106,11 +106,23 @@
       "endDate": "2020-09-20",
       "summary": "",
       "highlights": [
-        "Troubleshoot software, hardware and networking issues over the phone",
-        "Answer phone and email responses to the ITS Help Desk",
         "Developed ML (Segnet, Unet, Resnet) to identify manufacturing defects at production scale",
         "Utilized open-source ML libraries to implement network architectures found in academia",
         "Custom ML annotation tools save 20,000 hours of operator inspection time per year (1 year later)"
+
+      ]
+    },
+    {
+      "company": "Seagate Technology, Shakopee MN",
+      "position": "Mechanical Engineering Intern",
+      "website": "",
+      "startDate": "2019-06-05",
+      "endDate": "2019-09-20",
+      "summary": "",
+      "highlights": [
+        "Developed all aspects of custom metrology for clean-room automation equipment", 
+        "Created fixturing (Solidworks) and software(python) to interface the PLC, driver computer, and system network",
+        "Oversaw the completion of documentation and repeatability testing(GR&R). Presented on weekly trends"
 
       ]
     }
