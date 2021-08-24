@@ -9,7 +9,7 @@ date: 2021-04-01
 labels:
   - Solidworks
   - Collaboration
-summary: My group in ME14 designed an innovative shifting transmission, which won first place in performance and design
+summary: My group designed an innovative shifting transmission, which won first place in the Caltech ME14 competition.
 ---
 
 INSERT TEXT HERE
