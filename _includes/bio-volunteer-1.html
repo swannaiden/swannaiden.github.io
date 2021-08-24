@@ -1,5 +1,28 @@
 <!-- Used by theme-bio-builtin-1 -->
 
+
+{% if site.data.bio.volunteer %}
+<div class="row">
+  <div class="two wide column">
+    <h3 class="ui left aligned header no-bottom">Relevant Courses</h3>
+  </div>
+
+  <div class="fourteen wide column no-bottom">
+    <p class="ui no-bottom">
+    {% for entry in site.data.bio.volunteer %}
+      <p class="ui no-bottom">
+      <b>{{ entry.name }}:</b>
+      {% for keyword in entry.descriptions %}
+        {{ keyword }}{% if forloop.last != true %}, {% endif %}
+      {% endfor %}
+      </p>
+    {% endfor %}
+
+  </div>
+</div>
+{% endif %}
+
+<!--
 {% if site.data.bio.volunteer %}
 <div class="row">
   <div class="two wide column">
@@ -49,3 +72,5 @@
   </div>
 </div>
 {% endif %}
+
+-->
