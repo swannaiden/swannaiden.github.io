@@ -162,6 +162,12 @@
     }
   ],
   "volunteer": [
+    {"name": "Me12a", "descriptions": "Fluid Statics (Hydrostatics), Rigid Body Statics, and the Mechanics of Materials"},
+    {"name": "Me12b", "descriptions": "virtual work, distributed force systems, friction, static analysis of rigid and deformable structures, hydrostatics, kinematics, particle dynamics, rigid-body dynamics"},
+    {"name": "Me12c", "descriptions": "Systems of Particles, Kinetics of Rigid Bodies in Three Dimensions, Mechanical Vibrations"},
+    {"name": "CS21", "descriptions": "decidability and tracibility"},
+    {"name": "CS21", "descriptions": "decidability and tracibility"},
+    {"name": "CS21", "descriptions": "decidability and tracibility"},
     {"name": "CS21", "descriptions": "decidability and tracibility"}
   ],
   "references": [
