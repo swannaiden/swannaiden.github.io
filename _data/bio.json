@@ -29,14 +29,12 @@
   },
   "interests": [
     {
-      "name": "internet of things",
+      "name": "autonomous robotics",
       "keywords": [
-        "Arduino",
-        "TI MSP430"
       ]
     },
     {
-      "name": "data mining",
+      "name": "safety guarantees",
       "keywords": [
       ]
     },
@@ -44,7 +42,13 @@
       "name": "artificial intelligence",
       "keywords": [
       ]
+    },
+    {
+      "name": "control systems",
+      "keywords": [
+      ]
     }
+
   ],
   "skills": [
     {
@@ -87,8 +91,7 @@
       "company": "AMBER Lab, Caltech, Pasadena CA",
       "position": "Mechanical Engineering Intern",
       "website": "",
-      "startDate": "2021-05-01",
-      "endDate": "Present",
+      "startDate": "Summer 2021",
       "summary": "",
       "highlights": [
         "Designed and constructed agile quadrotor drone with inhouse autonomy software and hardware",
@@ -115,14 +118,26 @@
       "company": "Seagate Technology, Shakopee MN",
       "position": "Mechanical Engineering Intern",
       "website": "",
-      "startDate": "2019-06-05",
-      "endDate": "2019-09-20",
+      "startDate": "Summer 2019",
       "summary": "",
       "highlights": [
         "Developed all aspects of custom metrology for clean-room automation equipment", 
         "Created fixturing (Solidworks) and software(python) to interface the PLC, driver computer, and system network",
         "Oversaw the completion of documentation and repeatability testing(GR&R). Presented on weekly trends"
 
+      ]
+    },
+    {
+      "company": "LISEC Lab, University of Minnesota, Minneapolis MN",
+      "position": "Research Intern",
+      "website": "",
+      "startDate": "Summer 2017 2018",
+      "summary": "",
+      "highlights": [
+        "Developed electronics, hardware, and software for wireless communication between two IMUs and laptop",
+        "Technology was targeted at developing an arm motion tracking tool for physical therapy environments (2017)",
+        "Developed system to measure joint rigidity in Parkinson’s Disease patients",
+        "Used IMU with specially modified force sensitive resistors to adaptively measure elbow joint rigidity (2018)"
       ]
     }
   ],
