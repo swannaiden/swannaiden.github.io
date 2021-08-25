@@ -8,5 +8,9 @@ permalink: projects/film
 date: 2021-08-24
 labels:
   - Photography
+  - Film
 summary: Film photographs taken with a Pentax ME super found in my basement. Shot with Kodak Gold and HB5plus.
 ---
+
+<img class="ui image" src="{{ site.baseurl }}/images/film1.jpg">
+
