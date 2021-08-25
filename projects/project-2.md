@@ -12,6 +12,6 @@ labels:
 summary: Film photographs taken with a Pentax ME super found in my basement. Shot with Kodak Gold and HB5plus.
 ---
 
-Some text about this image
+### A collection of some of my favorite film images. Color shots are Kodak Gold 200ISO developed by Sammy's Camera in Pasadena
 <img class="ui image" src="{{ site.baseurl }}/images/film1.jpg">
 
