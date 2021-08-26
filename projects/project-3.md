@@ -15,10 +15,10 @@ summary: Photos taken with a EOS 7D. Selection of some of my favorites from my i
 Shot with Canon EOS 7D. Most phots are either 70-200mm F2.4 or an 18-135mm kit lens.
 
 <img class="ui image" src="{{ site.baseurl }}/images/digital/digital0Low.jpg">
-*Shot of roman candle in front of a Minnesota forest*
+*A bottle rocket launched from an old liquor bottle*
 
 <img class="ui image" src="{{ site.baseurl }}/images/digital/digital1Low.jpg">
-*A bottle rocket launched from an old liquor bottle*
+*Shot of roman candle in front of a Minnesota forest*
 
 <img class="ui image" src="{{ site.baseurl }}/images/digital/digital2Low.jpg">
 *Long exposure of spinning steel wool*
