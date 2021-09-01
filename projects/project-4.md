@@ -28,4 +28,4 @@ The Octagon project was a design only project conducted during the second half o
 
 
 **Engineering Notebook**
-<iframe src="https://drive.google.com/file/d/1iO_a4iOYbJq5ZMCMH6Gf5fc1CqhtmtSv/preview" frameborder="0" width="720" height="448" allow="autoplay"></iframe>
+<iframe src="https://drive.google.com/file/d/1iO_a4iOYbJq5ZMCMH6Gf5fc1CqhtmtSv/preview" frameborder="0" width="720" height="720" allow="autoplay"></iframe>
