@@ -5,7 +5,7 @@ image: images/transmission_small.jpg
 title: Transmission Design Contest (1st Place)
 permalink: projects/transmission
 # All dates must be YYYY-MM-DD format!
-date: 2021-04-01
+date: 2021-04-03
 labels:
   - Solidworks
   - Collaboration
@@ -21,6 +21,7 @@ Our gearbox is a unique shifting gearbox. We chose to use a dual roller clutch s
 **Critical Design Review**
 
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTGqCynRpyNrCO8ASNpOoYRxQORyFgzxT7EDap8FYK3ExgNvmt-CyUtX0IIZEpjpn8rZRksQecblaz1/embed?start=false&loop=false&delayms=3000" frameborder="0" width="720" height="448" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
 
 **Final Design Debrief**
 

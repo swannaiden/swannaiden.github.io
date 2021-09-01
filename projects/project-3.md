@@ -5,7 +5,7 @@ image: images/digital/digitalLow.jpg
 title: Digital Photography
 permalink: projects/digital
 # All dates must be YYYY-MM-DD format!
-date: 2021-08-24
+date: 2020-08-24
 labels:
   - Photography
 summary: Photos taken with a EOS 7D. Selection of some of my favorites from my instagram.
