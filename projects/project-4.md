@@ -12,7 +12,7 @@ labels:
 summary: Caltech ME14 Octagon design project. A two week design based robotics competition. No designs are constructed. 
 ---
 
-descriptive text about the octagon project here
+The Octagon project was a design only project conducted during the second half of ME14 at Caltech. Sophomore meches are presented with a theoretical game and must produce a strategy and design for a competitive robot over the course of two weeks. I worked with the same team as the transmission competition project. We produced a robot which drives through the scoring elements, allowing us to score at a greater speed. The rules of the octagon game are found below, along with our design and my engineering notebook for the class.
 
 **Competition Guidelines**
 
