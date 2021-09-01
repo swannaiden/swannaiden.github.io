@@ -27,4 +27,4 @@ summary: Caltech ME14 Octagon design project.
 
 
 **Engineering Notebook**
-<iframe src="https://drive.google.com/file/d/1iO_a4iOYbJq5ZMCMH6Gf5fc1CqhtmtSv/preview" width="640" height="480" allow="autoplay"></iframe>
+<iframe src="https://drive.google.com/file/d/1iO_a4iOYbJq5ZMCMH6Gf5fc1CqhtmtSv/preview" width="720" height="448" allow="autoplay"></iframe>
