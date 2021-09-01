@@ -9,9 +9,10 @@ date: 2021-04-02
 labels:
   - Solidworks
   - Collaboration
-summary: Caltech ME14 Octagon design project.
+summary: Caltech ME14 Octagon design project. A two week design based robotics competition. No designs are constructed. 
 ---
 
+descriptive text about the octagon project here
 
 **Competition Guidelines**
 
