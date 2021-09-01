@@ -28,4 +28,4 @@ descriptive text about the octagon project here
 
 
 **Engineering Notebook**
-<iframe src="https://drive.google.com/file/d/1iO_a4iOYbJq5ZMCMH6Gf5fc1CqhtmtSv/preview" width="720" height="448" allow="autoplay"></iframe>
+<iframe src="https://drive.google.com/file/d/1iO_a4iOYbJq5ZMCMH6Gf5fc1CqhtmtSv/preview" frameborder="0" width="720" height="448" allow="autoplay"></iframe>
