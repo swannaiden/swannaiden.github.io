@@ -12,7 +12,7 @@ summary: Photos taken with a EOS 7D. Selection of some of my favorites from my i
 ---
 
 ### A collection of some of my favorite digital images. 
-Shot with Canon EOS 7D. Most phots are either 70-200mm F2.4 or an 18-135mm kit lens.
+Shot with Canon EOS 7D. Most photos are either 70-200mm F2.4 or an 18-135mm kit lens.
 
 <img class="ui image" src="{{ site.baseurl }}/images/digital/digital0Low.jpg">
 *A bottle rocket launched from an old liquor bottle*

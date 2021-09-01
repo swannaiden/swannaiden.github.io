@@ -14,7 +14,7 @@
       <p class="ui no-bottom"><b>{{ entry.institution }}</b></p>
       <p class="ui no-bottom">{{ entry.studyType }}, {{ entry.area }}</p>
       <p class="ui no-bottom">{{ entry.minor}}</p>
-      <p class="ui no-bottom">Overall GPA{{ entry.GPA}}</p>
+      <p class="ui no-bottom">{{ entry.GPA}}</p>
       {% if entry.courses %}
       <ul style="margin: 0px;">
         {% for course in entry.courses %}
