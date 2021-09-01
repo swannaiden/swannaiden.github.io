@@ -1,7 +1,7 @@
 ---
 layout: project
 type: project
-image: images/digital/octagon.JPG
+image: images/octagon.JPG
 title: Octagon Design Project
 permalink: projects/octagon
 # All dates must be YYYY-MM-DD format!
