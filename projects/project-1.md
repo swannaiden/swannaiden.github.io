@@ -15,4 +15,5 @@ summary: My group designed an innovative shifting transmission, which won first 
 INSERT TEXT HERE
 
 
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTGqCynRpyNrCO8ASNpOoYRxQORyFgzxT7EDap8FYK3ExgNvmt-CyUtX0IIZEpjpn8rZRksQecblaz1/embed?start=false&loop=false&delayms=3000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<p style="text-align:center"><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTGqCynRpyNrCO8ASNpOoYRxQORyFgzxT7EDap8FYK3ExgNvmt-CyUtX0IIZEpjpn8rZRksQecblaz1/embed?start=false&loop=false&delayms=3000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></p>
+
