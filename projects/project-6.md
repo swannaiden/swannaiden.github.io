@@ -14,3 +14,11 @@ labels:
 summary: Conducted a summer undergraduate research fellowship (SURF) at Caltech for the summer of 2021. Worked closely with Prof Aaron Ames and graduate student Drew Singletary. At the conclusion of the project we wrote a paper which has been submitted to IEEE RA-L journal. 
 ---
 
+I conducted a summer undergraduate research fellowship (SURF) at Caltech for the summer of 2021. I worked in the AMBER lab at Caltech, working closely with Prof Aaron Ames and graduate student Drew Singletary. At the conclusion of the project we wrote a paper, *Onboard Safety Guarantees for Racing Drones:
+High-speed Geofencing with Control Barrier Functions* which has been submitted to IEEE RA-L journal. 
+
+Attached below is a video summary of the research that was prepared for the SURF presentation day
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3aBhimoLmKE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+The paper will be posted here if accepted
