@@ -14,13 +14,16 @@ labels:
 summary: Me72 is a two term rigorous team-based engineering design and fabrication challenge. Teams have 6 months to to design, assemble, and evaluate the fidelity and mechanical reliability of their robots. This years challenge is sumo robotics
 ---
 
-This years challenge is currently in progress with only month until the competition. Although I worked on this project with a team, everything below is a reflection of my work alone. This includes: ideation of robot, complete design of robot from sketches to detailed final CAD, electronics, and control systems of the robot. The rules document is linked [here](https://drive.google.com/file/d/1RviIKpvqzL3rPcYQZyhix5v6E6ohfgFx/view?usp=sharing); However, the best way to understand is by watching these robots in action (Note shows professional competitions in Japan).
+This years challenge is currently in progress with only month until the competition. Although I worked on this project with a team, everything below is a reflection of my work alone. This includes: ideation of robot, complete design of robot from sketches to detailed final CAD, electronics, and control systems of the robot. 
+
+
+The rules document is linked [here](https://drive.google.com/file/d/1RviIKpvqzL3rPcYQZyhix5v6E6ohfgFx/view?usp=sharing); However, the best way to understand is by watching these robots in action (Note shows professional competitions in Japan).
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/QCqxOzKNFks" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Below is a brief presentation which outlines the design of our sumo robot. This robot will compete on March 12.
 
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRWMnqmpLvjdCn0z63XNy5qG8o_nb5reouWyCSJ37mhFEYoDBhuSu6K2e7ZpfHndO5c2AOknXBcDD1D/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRWMnqmpLvjdCn0z63XNy5qG8o_nb5reouWyCSJ37mhFEYoDBhuSu6K2e7ZpfHndO5c2AOknXBcDD1D/embed?start=false&loop=false&delayms=3000" frameborder="0" width="720" height="448" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 
 
