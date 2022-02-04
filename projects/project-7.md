@@ -1,7 +1,7 @@
 ---
 layout: project
 type: project
-image: images/IMG_3609.png
+image: images/me72.png
 title: ME72 Design Competition 
 permalink: projects/ME72
 # All dates must be YYYY-MM-DD format!
