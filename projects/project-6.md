@@ -20,5 +20,7 @@ High-speed Geofencing with Control Barrier Functions* which has been submitted t
 Attached below is a video summary of the research that was prepared for the SURF presentation day
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3aBhimoLmKE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+u
+This paper was accepted by RA-L in January 2022
 
-The paper will be posted here if accepted
+[link](https://ieeexplore.ieee.org/document/9691815?source=authoralert)
