@@ -172,7 +172,10 @@
     {"name": "ME14", "descriptions": "Design, Fabrication, GD&T, advanced CAD and CAM"},
     {"name": "ACM104", "descriptions": "Applied Linear Algebra"},
     {"name": "ACM95ab", "descriptions": "Analysis and applied partial differential equations"},
-    {"name": "CDS110", "descriptions": "Introduction to feedback control systems"}
+    {"name": "CDS110", "descriptions": "Introduction to feedback control systems"},
+    {"name": "CDS131", "descriptions": "Linear Systems Theory"},
+    {"name": "CDS232", "descriptions": "Nonlinear Dynamics"},
+    {"name": "CDS233", "descriptions": "(Upcoming) Nonlinear Control"}
 
   ],
   "references": [
