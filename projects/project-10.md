@@ -1,7 +1,7 @@
 ---
 layout: project
 type: project
-image: images/frontpictureSmall.png
+image: images/taycanNobgsmall.png
 title: Safe Drone Flight with Time-Varying Backup Controllers
 permalink: projects/iros2022
 # All dates must be YYYY-MM-DD format!
@@ -22,3 +22,6 @@ to switch between several TBC’s and show how to embed TBCs in a multi-agent se
 efficiency when applied to decentralized safety filtering of two quadrotors.
 
 Submitted to IROS2022. The paper text will be published here if accepted.
+
+
+<img class="ui image" src="{{ site.baseurl }}/images/frontpicture.png">
