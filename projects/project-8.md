@@ -3,7 +3,7 @@ layout: project
 type: project
 image: images/me72.png
 title: Generative ML
-permalink: projects/ME72
+permalink: projects/genml
 # All dates must be YYYY-MM-DD format!
 date: 2022-04-02
 labels:
