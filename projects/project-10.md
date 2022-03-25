@@ -14,7 +14,7 @@ labels:
 summary: Research conducted in the AMBER lab at Caltech during winter quarter. Extension to research completed over the summer on backup controllers for high speed geofencing. Extends previous work to support multiple agents with multiple backup maneuvers
 ---
 
-**Abstract:** Abstract— The weight, space, and power limitations of small aerial vehicles often prevent the application of modern control techniques without significant model simplifications. Moreover,
+**Abstract:** The weight, space, and power limitations of small aerial vehicles often prevent the application of modern control techniques without significant model simplifications. Moreover,
 high-speed agile behavior, such as that exhibited in drone racing, make these simplified models too unreliable for safety-critical control. In this work, we introduce the concept of time-varying backup controllers (TBCs): user-specified maneuvers
 combined with backup controllers that generate reference trajectories which guarantee the safety of nonlinear systems. TBCs reduce conservatism when compared to traditional backup
 controllers and can be directly applied to multi-agent coordination to guarantee safety. Theoretically, we provide conditions under which TBCs strictly reduce conservatism, describe how
