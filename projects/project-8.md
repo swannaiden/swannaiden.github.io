@@ -5,7 +5,7 @@ image: images/genMLcover.JPG
 title: Generative ML
 permalink: projects/genml
 # All dates must be YYYY-MM-DD format!
-date: 2022-02-02
+date: 2021-05-03
 labels:
   - Python
   - Machine Learning
