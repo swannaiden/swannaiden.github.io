@@ -17,7 +17,7 @@ summary: Me72 is a two term rigorous team-based engineering design and fabricati
 This years challenge is to build a SUMO robot. This is a type of robotic competition popular in Japan. Although I worked on this project with a team, everything below is a reflection of my work alone. This includes: ideation of robot, complete design of robot from sketches to detailed final CAD, electronics, and control systems of the robot. 
 
 
-The rules document is linked [here](https://drive.google.com/file/d/1RviIKpvqzL3rPcYQZyhix5v6E6ohfgFx/view?usp=sharing); However, the best way to understand is by watching these robots in action. Below are some highlight of our sumo robot during the competition. 
+The rules document is linked [here](https://drive.google.com/file/d/1RviIKpvqzL3rPcYQZyhix5v6E6ohfgFx/view?usp=sharing); However, the best way to understand is by watching these robots in action. Below are some highlights I threw together of our sumo robot during the competition. A more complete documentary style team video is coming soon!
 
 <iframe width="720" height="448" src="https://www.youtube.com/embed/wmIIdW8iw4w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -34,6 +34,6 @@ Here are some images of competition and the assembled sumo robot.
 
 <img class="ui image" src="{{ site.baseurl }}/images/robot3-min.jpg">
 
-<img class="ui image" src="{{ site.baseurl }}/images/robot2.jpg">
+<img class="ui image" src="{{ site.baseurl }}/images/robot2.JPG">
 
-<img class="ui image" src="{{ site.baseurl }}/images/robot1.jpg">
+<img class="ui image" src="{{ site.baseurl }}/images/robot1.JPG">
