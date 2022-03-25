@@ -1,22 +1,19 @@
 ---
 layout: project
 type: project
-image: images/me72.png
+image: images/genMLcover.JPG
 title: Generative ML
 permalink: projects/genml
 # All dates must be YYYY-MM-DD format!
-date: 2022-04-02
+date: 2022-02-02
 labels:
-  - C++
-  - Robotics
-  - Competition
-  - Machining
-summary: Me72 is a two term rigorous team-based engineering design and fabrication challenge. Teams have 6 months to to design, assemble, and evaluate the fidelity and mechanical reliability of their robots. This years challenge is sumo robotics
+  - Python
+  - Machine Learning
+summary: Used generative machine learning to investigate new ways of picturing the cosmos. State of the art pretrained models are primed with extraterrestrial keywords which combined multiple aspects of the human relationship with space.
 ---
 
-This years challenge is currently in progress with only month until the competition. Although I worked on this 
-Here are some images of the assembled sumo robot. Note: This is still in development
+This project investigates the application of generative machine learning to descriptions of space. This work was done in VC117 Picturing the Universe as my final project. Generative learning has always fascinated me in the beautiful and surprising images it can create. I see in the near future generative models replacing stock photo websites, generative music, and even one day making movies from scratch. I have trained generative adversial networks from scratch before, but todays pre training models simply preform so well. I used VQGAN model primed with several combinations of space *themed* words. Below is the video I submitted with my final project. My analytical essay which talks about my thought process can be found in the writing section. 
 
-<img class="ui image" src="{{ site.baseurl }}/images/robot1-min.jpg">
+<iframe width="720" height="448" src="https://www.youtube.com/embed/-eoJy5EBX4c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
