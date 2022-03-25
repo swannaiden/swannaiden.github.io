@@ -16,5 +16,6 @@ I completed this analysis of the dynamics of a planar quadrotor for CDS 232 nonl
 
 <iframe src="https://drive.google.com/file/d/1TA8B4yTTeNnVWgLciOmC8ukJ6InqzG-D/preview" frameborder="0" width="720" height="1024"></iframe>
 
+<br />
 
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRfruBlpaijgKo5GDLTOcqB0dMPrhyFWWOdSM4AfkGo3DAVloAzgSlnhE4xkFhGnfr-tUlMmB77JPWB/embed?start=false&loop=false&delayms=3000" frameborder="0" width="720" height="427" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
