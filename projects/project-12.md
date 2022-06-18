@@ -10,7 +10,7 @@ labels:
   - Solidworks
   - CAM
   - Design
-summary: Machined a model Wankel rotary engine as my project in Caltech's CNC machining class ME23
+summary: Machined a model Wankel rotary engine as my project in Caltech's CNC machining class ME23. In this class I learned the essentials of CNC machining on Mills and Lathes. We used a Trak CNC mills and Lathes and well as Haas CNC machines. I did all aspects of programming and setup to make each of the parts.
 ---
 
 I machined a model Wankel rotary engine as my final project in Caltech's CNC machining. Here is a timelapse of the final assembly of the gearbox.
