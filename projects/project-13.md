@@ -5,7 +5,7 @@ image: images/233Cover2.png
 title: Control of a Quadrotor
 permalink: projects/cds233
 # All dates must be YYYY-MM-DD format!
-date: 2022-05-02
+date: 2022-06-02
 labels:
   - Matlab
   - Controls
