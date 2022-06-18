@@ -1,7 +1,7 @@
 ---
 layout: project
 type: project
-image: images/233Cover2.JPG
+image: images/233Cover2.png
 title: Control of a Quadrotor
 permalink: projects/cds233
 # All dates must be YYYY-MM-DD format!
