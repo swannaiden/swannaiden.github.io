@@ -21,6 +21,6 @@ Here is an image of the CAD design of the gearbox
 
 <img class="ui image" src="{{ site.baseurl }}/images/WankelRender.jpg">
 
-Here are the drawing for each of the parts. In total I machined 9 parts to create this gearbox
+Here are the drawings for each of the parts. In total I machined 9 parts to create this gearbox
 
-<iframe src="https://drive.google.com/file/d/1-FUuj7SsO_pUhXPiA8Ozh4YoLbeJ6eMM/preview" frameborder="0" width="720" height="1024"></iframe>
+<iframe src="https://drive.google.com/file/d/1-FUuj7SsO_pUhXPiA8Ozh4YoLbeJ6eMM/preview" frameborder="0" width="720" height="500"></iframe>
