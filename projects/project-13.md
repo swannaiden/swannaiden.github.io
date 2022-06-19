@@ -12,7 +12,7 @@ labels:
 summary: Final project of CDS233 nonlinear controls. Development of control algorithms for a planar and full 3D qaudrotor. Starting with feedback linearzation and control Lyapunov functions. Then we implement control saftey functions and backup control barrier function. Finally we demonstrate MPC on both the planar and full 3D quadrotor.  
 ---
 
-I completed this analysis of control of the quadrotor for CDS 233 nonlinear control. I developed of control algorithms for a planar and full 3D qaudrotor. Starting with feedback linearization and control Lyapunov functions. Then I implemented control saftey functions and backup control barrier function. Finally we demonstrate MPC on both the planar and full 3D quadrotor. Below is the paper which outlines this work and my final presentation
+I completed this analysis of control of the quadrotor for CDS 233 nonlinear control. I developed of control algorithms for a planar and full 3D quadrotor. Starting with feedback linearization and control Lyapunov functions. Then I implemented control safety functions and backup control barrier function. Finally we demonstrate MPC on both the planar and full 3D quadrotor.
 
 This work was completed with a partner. My contributions in the paper included the second half of the paper on control safety functions, backup control barrier functions and MPC. Included below is the final paper and the final presentation. 
 
