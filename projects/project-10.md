@@ -21,7 +21,7 @@ controllers and can be directly applied to multi-agent coordination to guarantee
 to switch between several TBC’s and show how to embed TBCs in a multi-agent setting. Experimentally, we verify that TBCs safely increase operational freedom when filtering a pilot’s actions and demonstrate robustness and computational
 efficiency when applied to decentralized safety filtering of two quadrotors.
 
-Submitted to IROS2022. The paper text will be published here if accepted.
+Submitted to IROS2022. The paper text will be published [here](https://arxiv.org/abs/2207.05220) if accepted.
 
 
 <img class="ui image" src="{{ site.baseurl }}/images/frontpicture.png">

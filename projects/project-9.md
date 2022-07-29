@@ -9,7 +9,7 @@ date: 2022-05-02
 labels:
   - Matlab
   - Controls
-summary: Final project of CDS232 nonlinear control and dynamics. Analysis of stability of the planar quadrotor system including Liptschitz continuity, Picard iteration, bounds on perturbation, equilibrium points, radius of attraction and safety
+summary: Final project of CDS232 nonlinear dynamics. Analysis of stability of the planar quadrotor system including Liptschitz continuity, Picard iteration, bounds on perturbation, equilibrium points, radius of attraction and safety
 ---
 
 I completed this analysis of the dynamics of a planar quadrotor for CDS 232 nonlinear dynamics and control. I investigate the stability of the planar quadrotor system including Liptschitz continuity, Picard iteration, bounds on perturbation, equilibrium points, radius of attraction and safety under both LQR and PID control. Below is the paper which outlines this work and my final presentation
