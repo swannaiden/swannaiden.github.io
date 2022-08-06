@@ -1,7 +1,7 @@
 ---
 layout: project
 type: project
-image: images/blender_cover_small.png
+image: images/euler_portrait.png
 title: Euler Project
 permalink: projects/euler
 # All dates must be YYYY-MM-DD format!

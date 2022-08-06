@@ -5,7 +5,7 @@ image: images/wankel_image.png
 title: Wankel Rotary Engine
 permalink: projects/engine
 # All dates must be YYYY-MM-DD format!
-date: 2022-08-25
+date: 2022-06-05
 labels:
   - Solidworks
   - CAM
