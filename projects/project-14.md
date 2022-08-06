@@ -17,7 +17,7 @@ summary: An important part of scientific communication is creating compelling an
 Blender is a free and open source professional animating software used by amateurs and professionals alike. My motivation with blender is to enhance my scientific communication skills by developing animations which explain concepts and better display data. 
 
 
-<img class="ui image" src="{{ site.baseurl }}/images/blender_screenshot.jpg">
+<img class="ui image" src="{{ site.baseurl }}/images/blender_screenshot.png">
 
 Although Matlab is an excellent tool for developing and simulating control algorithms, it is somewhat limited in its ability to create compelling visualizations. This is my first experience with using blender. Since I used it to visualize pathfinding inside lunar craters which is shown in the NASA Big Idea challenge project. Eventually I will develop a library for Matlab which interfacing directly with Blender. This will allow anyone to make simple renders in blender using data exported from Matlab. 
 
