@@ -5,7 +5,7 @@ image: images/blender_cover_small.png
 title: Physics Simulations in Blender
 permalink: projects/blender
 # All dates must be YYYY-MM-DD format!
-date: 2022-06-02
+date: 2022-06-08
 labels:
   - Simulation
   - Blender
