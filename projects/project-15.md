@@ -89,6 +89,8 @@ for i in range(0,1000000):
 ### Euler 41 [Pandigital prime](https://projecteuler.net/problem=41)
 Approach: We start by generating a list of numbers which satisfy the pandigital property. To reduce the complexity we search ony between 10^6 and 10^7. Then we check each of these numbers for primeness and return the largest one.  [code](https://github.com/swannaiden/euler-code/blob/main/euler41.ipynb).
 
+
+## Coming Soon
 ### Euler 36
 ### Euler 37
 ### Euler 38
