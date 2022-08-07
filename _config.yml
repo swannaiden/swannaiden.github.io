@@ -23,5 +23,6 @@ rouge-theme: github
 
 # YOU NORMALLY NEVER CHANGE THE FOLLOWING
 markdown: kramdown
+mathjax: true
 include: [_data]
 

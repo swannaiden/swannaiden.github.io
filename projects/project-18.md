@@ -15,3 +15,4 @@ summary: I create a mechanical slide rule which can geometrically solve the quad
 Does Latex Work ?
 $$x^2 + 5x - 6 = 0$$
 
+$x^2$
