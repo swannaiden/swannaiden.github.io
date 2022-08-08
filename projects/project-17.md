@@ -3,7 +3,7 @@ layout: project
 type: project
 image: images/cart_pole.png
 title: Comparing Methods of Control for the Cartpole
-permalink: projects/web
+permalink: projects/cartpole
 # All dates must be YYYY-MM-DD format!
 date: 2022-08-09
 labels:

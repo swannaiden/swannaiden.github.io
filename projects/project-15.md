@@ -9,7 +9,7 @@ date: 2022-08-07
 labels:
   - Math
   - Python
-summary: Project Euler is a compilation of mathematical challenge problems that are intended to be solved using a combination of mathematical elimination and computational brute force. Over the years I have solved several of the problems. They are a great way to get up to speed with a new programming language of choice. 
+summary: Project Euler is a compilation of mathematical challenge problems that are intended to be solved using a combination of mathematical elimination and computational brute force. 
 ---
 
 # Project Euler
