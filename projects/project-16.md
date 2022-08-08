@@ -14,11 +14,11 @@ summary: I learned basic javascript through an introductory class at Caltech. He
 
 These projects were completed as assignment for an introductory javascript class at Caltech. Each of the links below go to demos of each of the games. No code is attached.
 
-## Text Encrypter
+### Text Encrypter
 [link]({{ site.baseurl }}/web/encrypt)
 
 ### Minesweeper
 [link]({{ site.baseurl }}/web/minesweeper)
 
-## Weather
+### Weather
 [link]({{ site.baseurl }}/web/weather)

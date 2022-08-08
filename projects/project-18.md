@@ -2,7 +2,7 @@
 layout: project
 type: project
 image: images/slide_front.png
-title: A *mechanical* solution to the quadratic equation 
+title: A mechanical solution to the quadratic equation 
 permalink: projects/slide
 # All dates must be YYYY-MM-DD format!
 date: 2022-08-10
@@ -55,8 +55,8 @@ $$x^2-ax + (p^2-r^2)$$
 
 We now have a form of the quadratic equation that we can solve geometrically. I will now demonstrate the process with an example. 
 
-INSERT EXAMPLE HERE
+INSERT EXAMPLE HERE (need to buy adobe illustrator cannot keep using inkscape)
 
-### Making it Real
+### Making it Real (Coming soon)
 
-INSERT CAD AND PLANS FOR MANUFACTURING HERE
+I am in the process of designing an easy to manufacture open source version of this 

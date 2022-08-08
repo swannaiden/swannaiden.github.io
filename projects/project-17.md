@@ -1,25 +1,17 @@
 ---
 layout: project
 type: project
-image: images/web_cover.png
+image: images/cart_pole.png
 title: Comparing Methods of Control for the Cartpole
 permalink: projects/web
 # All dates must be YYYY-MM-DD format!
-date: 2022-08-08
+date: 2022-08-09
 labels:
   - Controls
   - Matlab
   - Machine Learning
-summary: I learned basic javascript through an introductory class at Caltech. Here are some of the projects I completed. 
+summary: In this project I compare several methods of control for the canonical cartpole system including LQR, energy shaping, MPC, and RL. 
 ---
 
-These projects were completed as assignment for an introductory javascript class at Caltech. Each of the links below go to demos of each of the games. No code is attached.
+# WIP
 
-### Text Encrypter
-[link]({{ site.baseurl }}/web/encrypt)
-
-### Minesweeper
-[link]({{ site.baseurl }}/web/minesweeper)
-
-### Weather
-[link]({{ site.baseurl }}/web/weather)
