@@ -38,13 +38,38 @@ First to build some intuition here is a GIF of the system showing a sinusoidal f
 
 <img class="ui image" src="{{ site.baseurl }}/images/cart_pole1.gif">
 
+<br />
+
 First I build a simple linear controller which drives the cartpole state to 0. To do this I use a linear quadratic regulator (LQR) controller. An LQR controller minimizes the quadratic cost defined as 
 
 $$J = x^T(t_1)F(t_1)x(t_1)  + \int\limits_{t_0}^{t_1} \left( x^T Q x + u^T R u + 2 x^T N u \right) dt$$
 
 A controller u = -Kx can be solved for using the continuous time algebraic Riccati equation (CARE). For our purposes we use Matlab built in functions to solve this equation given our system dynamics. Below you can see that our system is surprisingly stable around the top equilibrium point. 
 
-INSERT ANOTHER GIF HERE
+<img class="ui image" src="{{ site.baseurl }}/images/cart_pole2.gif">
 
-However, we still need to find a method to flip our cartpole up. 
+<br />
 
+However, we still need to find a method to flip our cartpole up. We will do this using a method called energy shaping. We know the potential energy of the system is maximized when the pendulum is on the top of the cart. Therefore if we can design a controller which adds to the energy of the system we can flip the pendulum up. Our controller also needs to add to the energy of theta rather than x. We want to flip the pendulum up, not accurate it to an infinitely high speed. Our controller thus has a dependance on the current angle. 
+
+$$u(t) = k (U(x)-U(x_{des})) \dot{\theta} \cos{\theta}$$
+
+We saturate the input to be inside a reasonable value. Using this controller we can get the pendulum into the ballpark of the top. We can then switch to the LQR controller to stabilize at the top. This is shown below. One additional thing to note is that we could more rigorously certify that this controller is stable using Lyapunov analysis, which I made add in a future version of this post. 
+
+<img class="ui image" src="{{ site.baseurl }}/images/cart_pole3.gif">
+
+<br />
+
+This controller has several major flaws. One of which is that this controller does not work for all initial conditions. If theta is equal to 0 the controller is at a singularity. This is an implication of the hairy ball [theorem](https://en.wikipedia.org/wiki/Hairy_ball_theorem). No continuos controller can drive the system to a desired position.
+
+We will now explore a new class of optimization based controllers. We will pose the problem of flipping the cart pole up as a nonlinear program. Consider the following optimization based controller
+
+$$\begin{align}
+u^*=\underset{u \in \mathbb{R}^{m}}{\operatorname{argmin}} & ~ \sum_{k=0}^{N-1}(x^T_kQx)k+u_k^TRu_k)+x^T_{t+N}Q_Fx_{t+N}) \\
+\mathrm{s.t.} &  ~ x_{k+1} = Ax_k+Bu_k \nonumber\\
+&  ~ x_k \in \mathcal{X}, \; u_k \in \mathcal{U} \nonumber\\
+&  ~ x_1 =x(0), \; x_N \in \mathcal{X}_F \nonumber
+\end{align}$$
+
+<br />
+<br />
