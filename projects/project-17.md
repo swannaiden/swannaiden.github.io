@@ -28,6 +28,7 @@ The simplicity of the cartpole made it the perfect system for me to learn new me
 
 Every good controls projects starts with the dynamics. Here I won't derive the dynamics. I will instead link two excellent websites: Matthew Peter Kelly's personal blog and Prof. Russ Tedrake's textbook/course/website. I feel like these two resources have been instrumental in my interest in control. [Here](http://www.matthewpeterkelly.com/tutorials/cartPole/index.html) Matthew Peter Kelly derives the dynamics using rigid body kinematics, while [here](http://underactuated.mit.edu/acrobot.html) Prof. Russ Tedrake uses the Lagrangian. These both yield the same for the dynamics. They can be found in the code for this project. We use matlab autogen functions to convert these dynamics into a state space equation of the form. 
 $$\dot{x} = f(x) + g(x)u$$
-Where the state is described by 
+Where the state can be described by 
+
 $$x = \begin{Bmatrix} x\\ \dot{x} \end{Bmatrix}$$
 
