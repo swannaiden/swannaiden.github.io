@@ -62,7 +62,7 @@ We saturate the input to be inside a reasonable value. Using this controller we 
 
 This controller has several major flaws. One of which is that this controller does not work for all initial conditions. If theta is equal to 0 the controller is at a singularity. This is an implication of the hairy ball [theorem](https://en.wikipedia.org/wiki/Hairy_ball_theorem). No continuos controller can drive the system to a desired position.
 
-We will now explore a new class of optimization based controllers. We will pose the problem of flipping the cart pole up as a nonlinear program. Consider the following optimization based controller
+We will now explore a new class of optimization based controllers. We will pose the problem of flipping the cart pole up as a nonlinear program. We wish to at every time step solve for the controller that minimizes the quadratic cost. Consider the following optimization based controller.
 
 $$\begin{align}
 u^*=\underset{u \in \mathbb{R}^{m}}{\operatorname{argmin}} & ~ \sum_{k=0}^{N-1}(x^T_kQx)k+u_k^TRu_k)+x^T_{t+N}Q_Fx_{t+N}) \\
@@ -71,5 +71,14 @@ u^*=\underset{u \in \mathbb{R}^{m}}{\operatorname{argmin}} & ~ \sum_{k=0}^{N-1}(
 &  ~ x_1 =x(0), \; x_N \in \mathcal{X}_F \nonumber
 \end{align}$$
 
+This controller solves for the optimal control input over a horizon of N steps with an initial and final condition subject to the linearized dynamics at each time step. By solving an optimization problem like this at each time step we can implement model predictive control (MPC). MPC generally requires more computational power than the simple controller presented above. Additionally, proving the stability of an MPC controller is fairly complicated. This MPC algorithm can be seen in action in the below GIF. I use [CasADi](https://web.casadi.org/) to transcribe and solve the nlp.
+
+<img class="ui image" src="{{ site.baseurl }}/images/cart_pole4.gif">
+
+<br />
+
+It is clear that the MPC controller takes a much more optimal approach to the flip up problem then the other algorithms discussed here. In summary I have introduced the cartpole system and presented several methods by which it can be controlled. All the programming for this project was done in Matlab and can be found [here](https://github.com/swannaiden/cartpole)
+
+<br />
 <br />
 <br />
