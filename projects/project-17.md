@@ -85,8 +85,7 @@ We will now experiment with a entirely different class of controller. reinforcem
 
 We can train a policy in 220 seconds which preforms well in a simulation. This is shown in the GIF below. 
 
-<img class="ui image" src="{{ site.baseurl }}/images/cart_pole5.gif">
-
+<iframe width="720" height="427" src="https://www.youtube.com/embed/BEhyvnnNXTk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <br />
 <br />
