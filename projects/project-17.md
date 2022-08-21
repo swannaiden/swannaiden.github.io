@@ -40,6 +40,8 @@ First to build some intuition here is a GIF of the system showing a sinusoidal f
 
 <br />
 
+## Control
+
 First I build a simple linear controller which drives the cartpole state to 0. To do this I use a linear quadratic regulator (LQR) controller. An LQR controller minimizes the quadratic cost defined as 
 
 $$J = x^T(t_1)F(t_1)x(t_1)  + \int\limits_{t_0}^{t_1} \left( x^T Q x + u^T R u + 2 x^T N u \right) dt$$
@@ -77,7 +79,14 @@ This controller solves for the optimal control input over a horizon of N steps w
 
 <br />
 
-It is clear that the MPC controller takes a much more optimal approach to the flip up problem then the other algorithms discussed here. In summary I have introduced the cartpole system and presented several methods by which it can be controlled. All the programming for this project was done in Matlab and can be found [here](https://github.com/swannaiden/cartpole)
+It is clear that the MPC controller takes a much more optimal approach to the flip up problem then the other algorithms discussed here. So far I have introduced the cartpole system and presented several methods by which it can be controlled. All the programming above was done in Matlab and can be found [here](https://github.com/swannaiden/cartpole)
+
+We will now experiment with a entirely different class of controller. reinforcement learning based controller. The basic premise of reinforcement learning is that we generate a large number of agents and evaluate their behavior based on a cumulative reward function. Over many iterations we can converge on a policy which maximizes the objective reward function. We will use Nvidia Isaac Gym to simulate our cartpole agents. Isaac Gym is an exciting new piece of software that allows RL training to be run completely on a GPU. Before ML training was done on the GPU, but was bottlenecked by physics simulations on the CPU. Isaac Gym allows us to do both on the GPU. 
+
+We can train a policy in 220 seconds which preforms well in a simulation. This is shown in the GIF below. 
+
+<img class="ui image" src="{{ site.baseurl }}/images/cart_pole5.gif">
+
 
 <br />
 <br />
