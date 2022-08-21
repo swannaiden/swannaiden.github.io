@@ -83,7 +83,7 @@ It is clear that the MPC controller takes a much more optimal approach to the fl
 
 We will now experiment with a entirely different class of controller. reinforcement learning based controller. The basic premise of reinforcement learning is that we generate a large number of agents and evaluate their behavior based on a cumulative reward function. Over many iterations we can converge on a policy which maximizes the objective reward function. We will use Nvidia Isaac Gym to simulate our cartpole agents. Isaac Gym is an exciting new piece of software that allows RL training to be run completely on a GPU. Before ML training was done on the GPU, but was bottlenecked by physics simulations on the CPU. Isaac Gym allows us to do both on the GPU. 
 
-We can train a policy in 220 seconds which preforms well in a simulation. This is shown in the GIF below. 
+We can train a policy in 220 seconds which preforms well in a simulation. This is shown in the video below. Code for this RL based controller can be found [here]() and closely follows based on an example from Nvidia. 
 
 <iframe width="720" height="427" src="https://www.youtube.com/embed/BEhyvnnNXTk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
