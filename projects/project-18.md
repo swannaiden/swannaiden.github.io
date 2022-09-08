@@ -10,6 +10,7 @@ labels:
   - Math
   - Solidworks
 summary: I create a mechanical slide rule which can geometrically solve the quadratic equation. This is part of a greater push of mine to use physics to solve math. Nature is an incredible calculator that solves NP hard problems in nanoseconds. 
+color: yellow
 ---
 
 ## Motivation
@@ -21,11 +22,11 @@ I mostly am advocating for the concept of using physics to solve math. There are
 
 ## Quadratic Equation Slide Rule
 ### How it Works
-This quadratic equation solving slide rule is from a [paper](https://www.cambridge.org/core/journals/proceedings-of-the-edinburgh-mathematical-society/article/link-slide-rule-for-the-mechanical-solution-of-quadratic-equations/21A715BF833F6CC66586C33D805312DF) I found which was published in 1919 after the World War I. This slide rules uses the physical laws of 3D space to solve a form of the quadratic equation. Here is how it works. 
+This quadratic equation solving slide rule is from a [paper](https://www.cambridge.org/core/journals/proceedings-of-the-edinburgh-mathematical-society/article/link-slide-rule-for-the-mechanical-solution-of-quadratic-equations/21A715BF833F6CC66586C33D805312DF) I found which was published in 1919 after the World War I. This slide rules uses the physical laws of 3D space to solve a form of the quadratic equation. Here is how it works:
 
 <img class="ui image" src="{{ site.baseurl }}/images/slide_draw_web.svg">
 
-Assume that $$AB$$ and $$AC$$ are equal in length so that $$\triangle{ABC}$$ is isosceles. We will now use the law of Cosines to develop a relationship between $$BD$$, $$DC$$ and $$AB$$. Consider the following labeled edges and angles.
+Consider the above triangle. Assume that $$AB$$ and $$AC$$ are equal in length so that $$\triangle{ABC}$$ is isosceles. We will now use the law of Cosines to develop a relationship between $$BD$$, $$DC$$ and $$AB$$. Consider the following labeled edges and angles.
 
 <img class="ui image" src="{{ site.baseurl }}/images/Stewarts_theorem.svg">
 
