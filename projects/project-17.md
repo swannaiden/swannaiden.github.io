@@ -34,7 +34,7 @@ Where the state can be described by
 
 $$x = \begin{Bmatrix} x\\ \dot{x} \end{Bmatrix}$$
 
-First to build some intuition here is a GIF of the system showing a sinusoidal force bring applied. Our goals in preforming control on this cart pole are to 1. stabilize it at its top point and 2. to dynamically flip it up to it's top point. 
+First to build some intuition here is a GIF of the system showing a sinusoidal force being applied. Our goals in preforming control on this cart pole are to 1. stabilize it at its top point and 2. to dynamically flip it up to it's top point. 
 
 <img class="ui image" src="{{ site.baseurl }}/images/cart_pole1.gif">
 
@@ -52,7 +52,7 @@ A controller u = -Kx can be solved for using the continuous time algebraic Ricca
 
 <br />
 
-However, we still need to find a method to flip our cartpole up. We will do this using a method called energy shaping. We know the potential energy of the system is maximized when the pendulum is on the top of the cart. Therefore if we can design a controller which adds to the energy of the system we can flip the pendulum up. Our controller also needs to add to the energy of theta rather than x. We want to flip the pendulum up, not accurate it to an infinitely high speed. Our controller thus has a dependance on the current angle. 
+However, we still need to find a method to flip our cartpole up. We will do this using a method called energy shaping. We know the potential energy of the system is maximized when the pendulum is on the top of the cart. Therefore if we can design a controller which adds to the energy of the system we can flip the pendulum up. Our controller also needs to add to the energy of theta rather than x. We want to flip the pendulum up, not accelerate it to an infinitely high speed. Our controller thus has a dependance on the current angle. 
 
 $$u(t) = k (U(x)-U(x_{des})) \dot{\theta} \cos{\theta}$$
 
