@@ -10,7 +10,7 @@ labels:
   - Solidworks
   - Collaboration
 summary: My group designed an innovative shifting transmission, which won first place in the Caltech ME14 competition.
-color: purple
+color: olive
 ---
 
 The ME14 transmission project is an annual competition that takes place over two weeks near the end of sophomore year for mechanical engineers at Caltech. The goal of this project is to design a gearbox which efficiently couples a small DC motor with a bicycle wheel. The score is the max RPM divided by the time to accelerate to 250 RPM.
