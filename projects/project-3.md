@@ -9,6 +9,7 @@ date: 2020-08-24
 labels:
   - Photography
 summary: Photos taken with a EOS 7D. Selection of some of my favorites from my instagram.
+color: purple
 ---
 
 ### A collection of some of my favorite digital images. 

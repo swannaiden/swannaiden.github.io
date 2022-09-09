@@ -12,6 +12,7 @@ labels:
   - Competition
   - Machining
 summary: Me72 is a two term rigorous team-based engineering design and fabrication challenge. Teams have 6 months to to design, assemble, and evaluate the fidelity and mechanical reliability of their robots. This years challenge is sumo robotics
+color: olive
 ---
 
 This years challenge is to build a SUMO robot. This is a type of robotic competition popular in Japan. Although I worked on this project with a team, everything below is a reflection of my work alone. This includes: ideation of robot, complete design of robot from sketches to detailed final CAD, electronics, and control systems of the robot. 

@@ -10,7 +10,7 @@ labels:
   - Math
   - Solidworks
 summary: I create a mechanical slide rule which can geometrically solve the quadratic equation. This is part of a greater push of mine to use physics to solve math. Nature is an incredible calculator that solves NP hard problems in nanoseconds. 
-color: yellow
+color: blue
 ---
 
 ## Motivation

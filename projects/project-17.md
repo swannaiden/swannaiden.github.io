@@ -11,6 +11,7 @@ labels:
   - Matlab
   - Machine Learning
 summary: In this project I compare several methods of control for the canonical cartpole system including LQR, energy shaping, MPC, and RL. 
+color: yellow
 ---
 
 ## Motivation

@@ -10,6 +10,7 @@ labels:
   - Simulation
   - Blender
 summary: An important part of scientific communication is creating compelling and aesthetically pleasing visualizations. The goal of this project is to introduce me to blender, which is a professional animating software which I hope to use to create scientific animations. I started my learning process by creating several animation using builtin physics simulations. 
+color: blue
 ---
 
 ## What is Blender ?

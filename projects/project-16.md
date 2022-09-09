@@ -10,6 +10,7 @@ labels:
   - Javascript
   - Webdev
 summary: I learned basic javascript through an introductory class at Caltech. Here are some of the projects I completed. 
+color: blue
 ---
 
 These projects were completed as assignment for an introductory javascript class at Caltech. Each of the links below go to demos of each of the games. No code is attached.

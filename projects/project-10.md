@@ -12,6 +12,7 @@ labels:
   - Quadrotors
   - Safety Critical Control
 summary: Research conducted in the AMBER lab at Caltech during winter quarter. Extension to research completed over the summer on backup controllers for high speed geofencing. Extends previous work to support multiple agents with multiple backup maneuvers
+color: yellow
 ---
 
 **Abstract:** The weight, space, and power limitations of small aerial vehicles often prevent the application of modern control techniques without significant model simplifications. Moreover,
