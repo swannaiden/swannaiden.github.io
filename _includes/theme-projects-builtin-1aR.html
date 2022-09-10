@@ -32,7 +32,7 @@
     </div>
 -->
 
-    {% assign project_pages = site.pages | where: "type", "project" | where: "color", "yellow" | sort: "date" | reverse %}
+    {% assign project_pages = site.pages | where: "color", "yellow" | sort: "date" | reverse %}
     {% for page in project_pages %}
       {% unless page.draft %}
         {% include project-card-1a.html page=page %}
