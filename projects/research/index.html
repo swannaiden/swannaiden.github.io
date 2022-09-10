@@ -1,1 +1,39 @@
-coming soon
+
+
+<div style="padding-top: 20px" class="ui container ">
+
+    <div class="ui stackable centered four cards">
+  
+  
+      <a class="card">
+        <div class="content">
+          <span class="header">Project Categories</span>
+      
+          <div class="description">
+            Research encompasses my resarch efforts mostly in control and dynamical systems at Caltech. Educational includes projects I hope are Educational. Mechanical are projects which include engineering design and fabrication. Hobbies is mostly photography I do on the side of being a student.
+          </div>
+          <div class="center aligned ui grid" style="padding-top: 10px">
+            <div class="sixteen wide column">
+                <button class="ui yellow button" href="{{ site.baseurl }}/projects/research">Research</button>
+            </div>
+            <div class="sixteen wide column">
+                <button class="ui blue button">Educational</button>
+            </div>
+            <div class="sixteen wide column">
+                <button class="ui olive button">Mechanical</button>
+            </div>
+            <div class="sixteen wide column">
+              <button class="ui purple button">Hobbies</button>
+            </div>
+          </div>
+        </div>
+      </a>
+  
+      {% assign project_pages = site.pages | where: "type", "project" | sort: "date" | reverse %}
+      {% for page in project_pages %}
+        {% unless page.draft %}
+          {% include project-card-1a.html page=page %}
+        {% endunless %}
+      {% endfor %}
+    </div>
+  </div>
