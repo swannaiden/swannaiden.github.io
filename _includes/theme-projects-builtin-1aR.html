@@ -5,7 +5,7 @@
 <div style="padding-top: 20px" class="ui container ">
 
   <div class="ui stackable centered four cards">
-    
+
 <!--
     <div class="card">
       <div class="content">
@@ -35,7 +35,7 @@
     {% assign project_pages = site.pages | where: "type", "project" | sort: "date" | reverse %}
     {% for page in project_pages %}
       {% unless page.draft %}
-        {% if page.color EQ "yellow" %}
+        {% if page.color == "yellow" %}
           {% include project-card-1a.html page=page %}
         {% endif %}
       {% endunless %}
