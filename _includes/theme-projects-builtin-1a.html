@@ -6,7 +6,7 @@
 
   <div class="ui stackable centered four cards">
 
-    <a class="card">
+    <div class="card">
       <div class="content">
         <span class="header">Project Categories</span>
     
@@ -28,7 +28,7 @@
           </div>
         </div>
       </div>
-    </a>
+    </div>
 
     {% assign project_pages = site.pages | where: "type", "project" | sort: "date" | reverse %}
     {% for page in project_pages %}
