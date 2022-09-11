@@ -12,7 +12,7 @@ labels:
   - Research
   - Safety
 summary: Conducted a summer undergraduate research fellowship (SURF) at Caltech for the summer of 2021. Worked closely with Prof Aaron Ames and graduate student Drew Singletary. At the conclusion of the project we wrote a paper which has been submitted to IEEE RA-L journal. 
-color: blue
+color: yellow
 ---
 
 I conducted a summer undergraduate research fellowship (SURF) at Caltech for the summer of 2021. I worked in the AMBER lab at Caltech, working closely with Prof Aaron Ames and graduate student Drew Singletary. At the conclusion of the project we wrote a paper, *Onboard Safety Guarantees for Racing Drones:
