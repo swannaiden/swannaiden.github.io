@@ -152,7 +152,7 @@
         "Implemented safety guarantees with control barrier functions on quadrotors (extensive C++)",
         "Learn to Fly system allows beginners to operate drones safely with autonomy in background",
         "Journal paper submitted to IEEE RA-L, Onboard Safety Guarantees for Racing Drones: High-speed Geofencing with Control Barrier Functions",
-        "Designed system to autonomously fly fly, track, and communicate with several quadrotors from flight controller to multi-agent planner",
+        "Designed system to autonomously fly, track, and communicate with several quadrotors from flight controller to multi-agent planner",
         "Time-varying backup barrier functions builds on previous work with barrier functions, improving performance and enabling multi-agent flight",
         "Conference paper submitted to IEEE IROS, Time-varying backup controllers"
       ]
