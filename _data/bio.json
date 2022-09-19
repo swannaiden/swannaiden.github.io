@@ -6,7 +6,7 @@
     "email": "aswann@caltech.edu",
     "phone": "612-834-4409",
     "website": "https://www.aidenswann.com",
-    "summary": "Mechanical engineering major, control and dynamical systems minor graduating 2023 at Caltech. Currently working with the AMBER lab at Caltech on high speed collision avoidance with drones. Seeking a summer research position.",
+    "summary": "Mechanical engineering major, control and dynamical systems minor graduating 2023 at Caltech. Passionate about mathematics, machine learning, and mechanical innovation to build the everyday robots of the future.",
     "location": {
       "address": "6710",
       "postalCode": "55439",
@@ -29,17 +29,17 @@
   },
   "interests": [
     {
-      "name": "film photography",
+      "name": "control and dynamics",
       "keywords": [
       ]
     },
     {
-      "name": "digital photography",
+      "name": "reinforcement learning",
       "keywords": [
       ]
     },
     {
-      "name": "mountain biking",
+      "name": "walking robotics",
       "keywords": [
       ]
     },
@@ -64,7 +64,7 @@
       ]
     },
     {
-      "name": "control systems",
+      "name": "robotic manipulation",
       "keywords": [
       ]
     }
@@ -79,16 +79,38 @@
         "Java",
         "Matlab",
         "Python",
-        "Machine Learning"
+        "Machine Learning",
+        "Latex",
+        "Mathematica"
       ]
     },
     {
-      "name": "Hardware",
+      "name": "Design and Modeling",
       "level": "",
       "keywords": [
         "Solidworks",
         "ANSYS",
-        "Machining"
+        "Blender",
+        "Adobe Illustrator",
+        "Keyshot"
+      ]
+    },
+    {
+      "name": "Machine Prototyping",
+      "level": "",
+      "keywords": [
+        "3D printing",
+        "Comprehensive CNC Machining",
+        "Conversational Programming"
+      ]
+    },
+    {
+      "name": "Soft Skills",
+      "level": "",
+      "keywords": [
+        "Team Leadership",
+        "Teaching & Tutoring",
+        "Oral & Written Communication"
       ]
     }
   ],
@@ -108,18 +130,31 @@
   ],
   "work": [
     {
+      "company": "Neuralink",
+      "position": "Mechanical Engineering Intern",
+      "website": "",
+      "startDate": "Summer 2022",
+      "summary": "Neuralink is a startup pioneering the future of brain computer interfaces to help people with paralysis",
+      "highlights": [
+        "Part of key reversibility team working to make the implant explantable and upgradible. Presented to company leadership weekly",
+        "Deleted greater than 10 minutes per development surgery by inventing new calibration mechanism for needles",
+        "Developed leading solution for brain implant isolation through the dura"
+      ]
+    },
+    {
       "company": "AMBER Lab, Caltech, Pasadena CA",
       "position": "Mechanical Engineering Intern",
       "website": "",
-      "startDate": "Summer 2021",
+      "startDate": "Summer 2021 - Spring 2022",
       "summary": "",
       "highlights": [
         "Designed and constructed agile quadrotor drone with inhouse autonomy software and hardware",
         "Implemented safety guarantees with control barrier functions on quadrotors (extensive C++)",
         "Learn to Fly system allows beginners to operate drones safely with autonomy in background",
-        "Journal paper submitted to IEEE RA-L, Onboard Safety Guarantees for Racing Drones: High-speed Geofencing with Control Barrier Functions"
-
-
+        "Journal paper submitted to IEEE RA-L, Onboard Safety Guarantees for Racing Drones: High-speed Geofencing with Control Barrier Functions",
+        "Designed system to autonomously fly fly, track, and communicate with several quadrotors from flight controller to multi-agent planner",
+        "Time-varying backup barrier functions builds on previous work with barrier functions, improving performance and enabling multi-agent flight",
+        "Conference paper submitted to IEEE IROS, Time-varying backup controllers"
       ]
     },
     {
@@ -175,7 +210,12 @@
     {"name": "CDS110", "descriptions": "Introduction to feedback control systems"},
     {"name": "CDS131", "descriptions": "Linear Systems Theory"},
     {"name": "CDS232", "descriptions": "Nonlinear Dynamics"},
-    {"name": "CDS233", "descriptions": "(Upcoming) Nonlinear Control"}
+    {"name": "CDS233", "descriptions": "Nonlinear Control"},
+    {"name": "CDS112", "descriptions": "(Upcoming) Optimal Control and Estimation"},
+    {"name": "CDS141", "descriptions": "(Upcoming) Networked Control Systems"},
+    {"name": "CDS234", "descriptions": "(Upcoming) Advanced Robotics: Planning"},
+    {"name": "ACM?", "descriptions": "(Upcoming) Mathematical Optimization"}
+
 
   ],
   "references": [
