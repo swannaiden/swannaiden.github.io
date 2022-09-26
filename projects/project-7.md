@@ -15,7 +15,7 @@ summary: Me72 is a two term rigorous team-based engineering design and fabricati
 color: olive
 ---
 
-This years challenge is to build a SUMO robot. This is a type of robotic competition popular in Japan. Although I worked on this project with a team, everything below is a reflection of my work alone. This includes: ideation of robot, complete design of robot from sketches to detailed final CAD, electronics, and control systems of the robot. 
+This years challenge is to build a SUMO robot. This is a type of robotic competition popular in Japan. Although I worked on this project with a team, everything in the presentation below is a reflection of my contributions to one robot within the team. This includes: ideation of robot, complete design of robot from sketches to detailed final CAD, electronics, and control systems of the robot. 
 
 
 The rules document is linked [here](https://drive.google.com/file/d/1RviIKpvqzL3rPcYQZyhix5v6E6ohfgFx/view?usp=sharing); However, the best way to understand is by watching these robots in action. Below are some highlights I threw together of our sumo robot during the competition. A more complete documentary style team video is coming soon!
