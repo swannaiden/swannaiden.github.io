@@ -63,7 +63,7 @@ We saturate the input to be inside a reasonable value. Using this controller we 
 
 <br />
 
-This controller has several major flaws. One of which is that this controller does not work for all initial conditions. If theta is equal to 0 the controller is at a singularity. This is an implication of the hairy ball [theorem](https://en.wikipedia.org/wiki/Hairy_ball_theorem). No continuos controller can drive the system to a desired position.
+This controller has several major flaws. One of which is that this controller does not work for all initial conditions. If theta is equal to 0 the controller is at a singularity. This is an implication of the hairy ball [theorem](https://en.wikipedia.org/wiki/Hairy_ball_theorem). No continuous controller can drive the system to a desired position.
 
 We will now explore a new class of optimization based controllers. We will pose the problem of flipping the cart pole up as a nonlinear program. We wish to at every time step solve for the controller that minimizes the quadratic cost. Consider the following optimization based controller.
 

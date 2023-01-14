@@ -2,7 +2,7 @@
 layout: project
 type: project
 image: images/slide_front.png
-title: A mechanical solution to the quadratic equation 
+title: A Mechanical Solution to the Quadratic Equation 
 permalink: projects/slide
 # All dates must be YYYY-MM-DD format!
 date: 2022-08-10
