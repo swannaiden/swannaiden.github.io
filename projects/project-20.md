@@ -29,6 +29,16 @@ Once the schematic is complete designing the PCB is a breeze. Using EasyEDA you 
 
 <img class="ui image" src="{{ site.baseurl }}/images/pcb.png">
 
-I got an incredible deal for the production of these PCBs. Only $2 for 25 board including shipping from Hong Kong to Los Angeles, this deal was definitely an exception. However generally PCBs are fairly cheap. I ordered the components from [Digikey](http://www.digikey.com/short/4q59292f). Overall the cost per board was around $2. 
+I got an incredible deal for the production of these PCBs. Only $2 for 25 boards including shipping from Hong Kong to Los Angeles, this deal was definitely an exception. However generally PCBs are fairly cheap. I ordered the components from [Digikey](http://www.digikey.com/short/4q59292f). Overall the cost per board was around $2. Below is a picture of all 25 boards. 
+
+<img class="ui image" src="{{ site.baseurl }}/images/boards2.png">
+
+Soldering the individual surface mount components was a little challenging. The smallest components on the board where 0603 which is 2mm x 1mm in size. I found the key was using a lot of flux with a high quality solder. 
 
 ## Results
+
+After completing the board the RFID chip can be programmed with a variety of data including, wifi information, virtual business card, web link, etc. For this card I programmed the RFID chip to link to this website. Here is an image of the completed board. 
+
+<img class="ui image" src="{{ site.baseurl }}/images/complete_board_bg.png">
+
+Insert video of NFC working here
