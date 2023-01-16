@@ -41,4 +41,4 @@ After completing the board the RFID chip can be programmed with a variety of dat
 
 <img class="ui image" src="{{ site.baseurl }}/images/complete_board_bg.png">
 
-Insert video of NFC working here
+A video of the RFID link working can be found [here](https://www.youtube.com/shorts/uquaCuG2GNk)
