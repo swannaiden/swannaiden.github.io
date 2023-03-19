@@ -9,6 +9,7 @@ date: 2020-08-25
 labels:
   - Photography
 summary: Astrophotography photos taken over the years. All taken with a Canon EOS 7D 
+color: purple
 ---
 
 ### A collection of some of my favorite astrophotography images
