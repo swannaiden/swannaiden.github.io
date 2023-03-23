@@ -1,7 +1,7 @@
 ---
 layout: project
 type: project
-image: images/mandelbrot_thumbnail.jpg
+image: images/mandelbrot_thumb.png
 title: Interactive Mandelbrot Set Visualization
 permalink: projects/mandelbrot
 
@@ -63,4 +63,4 @@ for each pixel (x, y) in the image:
 In this project, I have implemented this algorithm using JavaScript and the HTML5 Canvas API, allowing users to interactively explore the Mandelbrot Set by panning and zooming. The zoom and pan features are optimized to only recalculate the Mandelbrot Set when necessary, providing a smooth user experience.
 
 <!-- Insert images of the Mandelbrot Set here -->
-Enjoy exploring the fascinating world of the Mandelbrot Set with this interactive visualization!
+Enjoy exploring the fascinating world of the Mandelbrot Set with this [interactive](https://aidenswann.com/web/mandelbrot) visualization!
