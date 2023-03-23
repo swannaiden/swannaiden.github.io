@@ -5,14 +5,13 @@ image: images/mandelbrot_thumb.png
 title: Interactive Mandelbrot Set Visualization
 permalink: projects/mandelbrot
 
-All dates must be YYYY-MM-DD format!
+#All dates must be YYYY-MM-DD format!
 date: 2023-03-22
 labels:
-
-Fractals
-Mathematics
-JavaScript
-HTML5 Canvas
+    - Fractals
+    -  Mathematics
+    - JavaScript
+    - SHTML5 Canvas
 summary: An interactive web application that allows users to explore the beautiful and complex world of the Mandelbrot Set.
 color: blue
 ---
