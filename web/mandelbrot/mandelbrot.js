@@ -152,10 +152,10 @@ canvas.addEventListener('mouseup', () => {
 
 let debounceTimeout;
 
-function drawMandelbrotDebounced() {
-    clearTimeout(debounceTimeout);
-    debounceTimeout = setTimeout(drawMandelbrot, 100);
-}
+// function drawMandelbrotDebounced() {
+//     clearTimeout(debounceTimeout);
+//     debounceTimeout = setTimeout(drawMandelbrot, 100);
+// }
 
 canvas.addEventListener('mousemove', (e) => {
     if (dragging) {
@@ -167,6 +167,26 @@ canvas.addEventListener('mousemove', (e) => {
 
         drawMandelbrotDebounced();
     }
+});
+
+const zoomInButton = document.getElementById('zoomInButton');
+zoomInButton.addEventListener('click', () => {
+    centerX = (centerX + offsetX);
+    centerY = (centerY + offsetY);
+    offsetX = 0;
+    offsetY = 0;
+    zoom *= 0.9;
+    drawMandelbrot();
+});
+
+const zoomOutButton = document.getElementById('zoomOutButton');
+zoomOutButton.addEventListener('click', () => {
+    centerX = (centerX + offsetX);
+    centerY = (centerY + offsetY);
+    offsetX = 0;
+    offsetY = 0;
+    zoom *= 1.1;
+    drawMandelbrot();
 });
 
 
@@ -220,6 +240,19 @@ function randomColorScheme() {
 // });
 
 // Other code remains the same
+
+function debounce(func, wait) {
+    let timeout;
+    return function () {
+        const context = this, args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(function () {
+            func.apply(context, args);
+        }, wait);
+    };
+}
+
+const drawMandelbrotDebounced = debounce(drawMandelbrot, 250);
 
 canvas.addEventListener('wheel', (e) => {
     e.preventDefault();
