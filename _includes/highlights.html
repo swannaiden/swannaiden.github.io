@@ -1,0 +1,24 @@
+<div class="row my-3 justify-content-center">
+  <div class="col-4 px-1">
+    <a href="https://chengine.github.io/safer-splat/" class="d-block h-100">
+      <img class="img-fluid w-100 h-100 object-fit-cover" src="assets/img/safer_splat.gif" alt="safer splat" />
+    </a>
+  </div>
+  <div class="col-4 px-1">
+    <a href="https://arm.stanford.edu/touch-gs" class="d-block h-100">
+      <img class="img-fluid w-100 h-100 object-fit-cover" src="assets/img/touch-gs.gif" alt="touch" />
+    </a>
+  </div>
+  <div class="col-3 px-1">
+    <a href="https://mikh3x4.github.io/nerf-navigation/" class="d-block h-100">
+      <img class="img-fluid w-100 h-100 object-fit-cover" src="assets/img/splat-mover-large.gif" alt="splat mover" />
+    </a>
+  </div>
+</div>
+<hr />
+{% assign highlights_sorted = site.highlights | sort: "date" | reverse %}
+{% for highlight in highlights_sorted %}
+    <div class="row py-2">
+        <p><span class="pe-1">{{highlight.emoji}}</span> <b>{{ highlight.date | date: "%B %Y"}}:</b> {{highlight.content | remove: "<p>" | remove: "</p>"}}</p>
+    </div>
+{% endfor %}

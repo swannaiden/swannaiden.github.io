@@ -1,0 +1,86 @@
+<!DOCTYPE>
+<!--
+  Provided HTML for A1: Message Encrypter
+  CS 11 JS Winter 2021
+
+  Instructions: This code is provided for you, but defines elements that you will
+  be interacting with in encrypt.js. You are not required to change this HTML, though
+  you may when adding your own features. You may also choose to change the name of
+  the Custom Cipher dropdown element.
+-->
+<html>
+
+<head>
+  <title>Message Encrypter</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="encrypt.js"></script>
+</head>
+
+<body>
+  <main>
+    <header>
+      <h1>Message Encrypter</h1>
+      <h2>Translate any text message into a super-secret cipher!</h2>
+    </header>
+  </main>
+  <main>
+    <div>
+      <fieldset>
+        <legend>Text to Encrypt</legend>
+        <textarea id="input-text" placeholder="Enter your message to encrypted here"></textarea>
+      </fieldset>
+    </div>
+    <div>
+      <fieldset>
+        <legend>Encrypt Options</legend>
+
+        <p>
+          <strong>Cipher Type: </strong>
+          <select id="cipher-type">
+            <option value="shift">Shift Cipher</option>
+            <option value="emoji">Emoji Cipher</option>
+          </select>
+        </p>
+
+        <!-- 
+          Uncomment this if you would like to add a feature for a key (e.g. a shift-cipher
+          value instead of only using 1-letter shifts).
+        <p>
+          <strong>Key: </strong>
+          <input type="number" id="key" name="key" min="1" max="26" value="1">
+        </p>
+        -->
+
+        <p>
+          <strong>Font Size: </strong>
+          <label>
+            <input checked type="radio" name="text-size" value="12pt">12pt</input>
+          </label>
+          <label>
+            <input type="radio" name="text-size" value="24pt">24pt</input>
+          </label>
+        </p>
+
+        <p>
+          <label>
+            <strong>All-Caps:</strong>
+            <input id="all-caps" type="checkbox" />
+          </label>
+        </p>
+
+        <button id="encrypt">Encrypt!</button>
+        <button id="reset">Reset</button>
+      </fieldset>
+    </div>
+
+    <div>
+      <fieldset>
+        <legend>Result</legend>
+        <p id="result"></p>
+      </fieldset>
+    </div>
+
+  </main>
+</body>
+
+</html>

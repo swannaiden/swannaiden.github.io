@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandelbrot Set Viewer</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #zoomButtons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="zoomButtons">
+            <button id="zoomInButton">+</button>
+            <button id="zoomOutButton">-</button>
+        </div>
+        <canvas id="mandelbrotCanvas" width="700" height="700"></canvas>
+        <button id="saveButton">Save High-Resolution Image</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.2.0/math.min.js"></script>
+    <script src="mandelbrot.js"></script>
+</body>
+</html>
