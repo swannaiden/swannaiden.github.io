@@ -1,0 +1,287 @@
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+
+// Resize the canvas based on its CSS size
+function resizeCanvas() {
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+let gameStarted = false;
+
+// Robot arm parameters
+let baseX, baseY, armLengths;
+function updateArmParameters() {
+    baseX = canvas.width / 2;
+    baseY = canvas.height * 0.9;
+    armLengths = [canvas.height * 0.25, canvas.height * 0.2]; // Adjust arm lengths based on canvas size
+}
+updateArmParameters();
+
+let angles = [0, 0]; // Shoulder and elbow angles
+
+// Control keys
+const keys = {
+    'A': false, // Rotate shoulder left
+    'D': false, // Rotate shoulder right
+    'W': false, // Rotate elbow up
+    'S': false, // Rotate elbow down
+    ' ': false  // Open/close gripper
+};
+
+let gripperOpen = true;
+let heldObject = null;
+
+// Objects to pick
+let objects = [];
+spawnNewObject();
+
+// Bin
+let bin = {};
+updateBinParameters();
+
+// Event listeners for key presses
+window.addEventListener('keydown', (e) => {
+    if (!gameStarted) {
+        gameStarted = true;
+        gameLoop();
+    }
+
+    const key = e.key.toUpperCase();
+    if (keys.hasOwnProperty(key)) {
+        keys[key] = true;
+        e.preventDefault();
+    }
+});
+
+window.addEventListener('keyup', (e) => {
+    const key = e.key.toUpperCase();
+    if (keys.hasOwnProperty(key)) {
+        keys[key] = false;
+        e.preventDefault();
+    }
+});
+
+// Update parameters on resize
+window.addEventListener('resize', () => {
+    resizeCanvas();
+    updateArmParameters();
+    updateBinParameters();
+});
+
+function update() {
+    // Update joint angles based on key presses
+    const angleSpeed = 0.02;
+
+    if (keys['A']) angles[0] -= angleSpeed;
+    if (keys['D']) angles[0] += angleSpeed;
+    if (keys['W']) angles[1] -= angleSpeed;
+    if (keys['S']) angles[1] += angleSpeed;
+
+    // Gripper control
+    if (keys[' ']) {
+        gripperOpen = !gripperOpen;
+        keys[' '] = false; // Toggle only once per key press
+
+        if (!gripperOpen && heldObject == null) {
+            // Try to pick up an object
+            for (let obj of objects) {
+                if (!obj.picked && isGripperTouching(obj)) {
+                    heldObject = obj;
+                    obj.picked = true;
+                    break;
+                }
+            }
+        } else if (gripperOpen && heldObject != null) {
+            // Release the object
+            if (isOverBin(heldObject)) {
+                bin.contains += 1;
+                // Remove the object from the game
+                objects = objects.filter(obj => obj !== heldObject);
+                spawnNewObject();
+            } else {
+                // Drop the object where it is
+                heldObject.picked = false;
+            }
+            heldObject = null;
+        }
+    }
+
+    // Update held object's position
+    if (heldObject != null) {
+        let gripperPos = getGripperPosition();
+        heldObject.x = gripperPos.x - heldObject.width / 2;
+        heldObject.y = gripperPos.y - heldObject.height / 2;
+    }
+}
+
+function getGripperPosition() {
+    // Calculate the gripper's world position
+    let angle = 0;
+    let x = baseX;
+    let y = baseY;
+
+    angle += angles[0];
+    x += armLengths[0] * Math.sin(angle);
+    y += -armLengths[0] * Math.cos(angle);
+
+    angle += angles[1];
+    x += armLengths[1] * Math.sin(angle);
+    y += -armLengths[1] * Math.cos(angle);
+
+    return { x: x, y: y };
+}
+
+function isGripperTouching(obj) {
+    let gripperPos = getGripperPosition();
+    let dx = gripperPos.x - (obj.x + obj.width / 2);
+    let dy = gripperPos.y - (obj.y + obj.height / 2);
+    let distance = Math.sqrt(dx * dx + dy * dy);
+    return distance < 30; // Increased radius to make it easier to pick up
+}
+
+function isOverBin(obj) {
+    return obj.x + obj.width / 2 > bin.x && obj.x + obj.width / 2 < bin.x + bin.width &&
+           obj.y + obj.height / 2 > bin.y && obj.y + obj.height / 2 < bin.y + bin.height;
+}
+
+function spawnNewObject() {
+    let maxReach = armLengths[0] + armLengths[1] - 20; // Subtracting 20 to ensure object is within reach
+    let minReach = Math.abs(armLengths[0] - armLengths[1]) + 20; // Adding 20 to avoid inner unreachable area
+
+    let angle = Math.random() * Math.PI; // Random angle between 0 and π radians (upper half circle)
+    let radius = Math.random() * (maxReach - minReach) + minReach;
+
+    let objX = baseX + radius * Math.cos(angle);
+    let objY = baseY - radius * Math.sin(angle);
+
+    // Ensure the object is within the canvas bounds
+    objX = Math.min(Math.max(objX, 0), canvas.width - 20);
+    objY = Math.min(Math.max(objY, 0), canvas.height - 20);
+
+    objects.push({
+        x: objX,
+        y: objY,
+        width: 20,
+        height: 20,
+        picked: false
+    });
+}
+
+function updateBinParameters() {
+    bin = {
+        x: canvas.width * 0.1,
+        y: canvas.height * 0.7,
+        width: canvas.width * 0.08,
+        height: canvas.height * 0.15,
+        contains: bin.contains || 0
+    };
+}
+
+function drawArm() {
+    // Draw base circle
+    ctx.beginPath();
+    ctx.arc(baseX, baseY, 12, 0, 2 * Math.PI);
+    ctx.fillStyle = '#666';
+    ctx.fill();
+
+    ctx.save();
+    ctx.translate(baseX, baseY);
+    ctx.strokeStyle = '#000';
+    ctx.lineWidth = 10;
+    ctx.lineCap = 'round';
+
+    let angle = 0;
+
+    // Shoulder
+    angle += angles[0];
+    ctx.rotate(angles[0]);
+
+    // Draw shoulder circle
+    ctx.beginPath();
+    ctx.arc(0, 0, 10, 0, 2 * Math.PI);
+    ctx.fillStyle = '#555';
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(0, -armLengths[0]);
+    ctx.stroke();
+
+    ctx.translate(0, -armLengths[0]);
+
+    // Elbow
+    angle += angles[1];
+    ctx.rotate(angles[1]);
+
+    // Draw elbow circle
+    ctx.beginPath();
+    ctx.arc(0, 0, 10, 0, 2 * Math.PI);
+    ctx.fillStyle = '#555';
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(0, -armLengths[1]);
+    ctx.stroke();
+
+    ctx.translate(0, -armLengths[1]);
+
+    // Gripper
+    ctx.strokeStyle = '#f00';
+    ctx.lineWidth = 5;
+
+    if (gripperOpen) {
+        ctx.beginPath();
+        ctx.moveTo(-5, 0);
+        ctx.lineTo(-15, -20);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(5, 0);
+        ctx.lineTo(15, -20);
+        ctx.stroke();
+    } else {
+        ctx.beginPath();
+        ctx.moveTo(-5, 0);
+        ctx.lineTo(-5, -20);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(5, 0);
+        ctx.lineTo(5, -20);
+        ctx.stroke();
+    }
+
+    ctx.restore();
+}
+
+function drawObjects() {
+    objects.forEach((obj) => {
+        ctx.fillStyle = '#00f';
+        ctx.fillRect(obj.x, obj.y, obj.width, obj.height);
+    });
+}
+
+function drawBin() {
+    ctx.fillStyle = '#0a0';
+    ctx.fillRect(bin.x, bin.y, bin.width, bin.height);
+
+    ctx.fillStyle = '#fff';
+    ctx.font = '16px Arial';
+    ctx.fillText('Bin: ' + bin.contains, bin.x, bin.y - 10);
+}
+
+function gameLoop() {
+    update();
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    drawBin();
+    drawObjects();
+    drawArm();
+
+    requestAnimationFrame(gameLoop);
+}
