@@ -1,0 +1,21 @@
+# Build the site
+bundle exec jekyll build --future
+
+# Switch to gh-pages branch
+git checkout gh-pages || git checkout -b gh-pages
+
+# Remove existing files
+git rm -rf .
+
+# Copy the generated site
+cp -r _site/* .
+
+# Add and commit changes
+git add .
+git commit -m "Deploy site"
+
+# Push to gh-pages branch
+git push origin gh-pages --force
+
+# Switch back to master
+git checkout master
