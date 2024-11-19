@@ -242,10 +242,11 @@ div.footer p{
 }
 
 html {
-  transform: scale(0.9); /* Apply a 90% zoom */
-  transform-origin: top left; /* Anchor scaling to the top-left corner */
-  width: 111.11%; /* Compensate for the reduced scale */
-  height: 111.11%;
-  overflow-x: hidden; /* Prevent horizontal scrolling due to scaling */
+  transform: scale(0.9); /* Apply scaling */
+  transform-origin: top center; /* Ensure scaling centers horizontally */
+  width: 100%; /* Keep content width responsive */
+  height: 100%; /* Keep content height responsive */
+  margin: 0 auto; /* Re-center horizontally */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
