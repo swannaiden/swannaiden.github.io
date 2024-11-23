@@ -1,4 +1,4 @@
-## Aiden Swann's Personal Webpage**
+## Aiden Swann's Personal Webpage
 
 Feel free to fork this site!
 
