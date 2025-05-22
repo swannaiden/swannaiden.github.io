@@ -6,3 +6,5 @@ vendor
 *DS_STORE*
 Gemfile.lock
 node_modules
+doc.txt
+gptquery.py
