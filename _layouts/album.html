@@ -39,7 +39,8 @@
                   {% assign include_file = 0 %}
                   {% for p in page.filename_prefixes %}
                     {% assign l = p | size %}
-                    {% if file.name | slice: 0, l == p %}
+                    {% assign prefix = file.name | slice: 0, l %}
+                    {% if prefix == p %}
                       {% assign include_file = 1 %}
                     {% endif %}
                   {% endfor %}
