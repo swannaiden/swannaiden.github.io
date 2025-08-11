@@ -47,6 +47,11 @@ jobs:
           bundler-cache: true
       - name: Build site
         run: bundle exec jekyll build --trace
+        env:
+          JEKYLL_ENV: production
+      - name: Upload artifacts
+        uses: actions/upload-page-artifact@v3
+
 
   deploy:
     environment:
