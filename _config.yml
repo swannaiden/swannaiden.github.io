@@ -37,8 +37,8 @@ sass:
 
 markdown: kramdown
 kramdown:
-input: GFM
-syntax_highlighter: rouge
+  input: GFM
+  syntax_highlighter: rouge
 # # Build settings
 
 # collections:
@@ -50,3 +50,13 @@ collections:
   highlights:
   projects:
     output: true
+  albums:
+    output: true
+    permalink: /photography/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: albums
+    values:
+      layout: album

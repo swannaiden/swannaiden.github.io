@@ -1,0 +1,67 @@
+/* Minimalist white theme for photography */
+:root {
+  --ph-text: #111;
+  --ph-muted: #666;
+  --ph-border: #e6e6e6;
+  --ph-bg: #fff;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--ph-bg);
+  color: var(--ph-text);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+  line-height: 1.6;
+}
+
+.ph-header { border-bottom: 1px solid var(--ph-border); background: #fff; }
+.ph-nav {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+}
+.ph-nav a { color: var(--ph-text); text-decoration: none; font-weight: 600; }
+.ph-nav .ph-brand { font-size: 1.1rem; }
+
+.ph-container { max-width: 1080px; margin: 0 auto; padding: 24px 16px; }
+
+.ph-title { font-size: 2rem; margin: 0 0 8px; }
+.ph-description { color: var(--ph-muted); margin-top: 0; }
+
+.album-cover { margin: 16px 0 24px; }
+.album-cover img { width: 100%; height: auto; border-radius: 6px; }
+
+/* Grid */
+.ph-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+/* Album cards */
+.ph-card {
+  display: block;
+  border: 1px solid var(--ph-border);
+  border-radius: 8px;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.ph-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.06); }
+.ph-card-image { aspect-ratio: 16/10; background: #fafafa; }
+.ph-card-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ph-card-body { padding: 12px; }
+.ph-card-title { margin: 0; font-size: 1.1rem; }
+.ph-card-meta { margin: 4px 0 8px; color: var(--ph-muted); font-size: .9rem; }
+.ph-card-text { margin: 0; color: var(--ph-muted); font-size: .95rem; }
+
+/* Thumbnails inside album */
+.ph-thumb { display: block; border-radius: 6px; overflow: hidden; border: 1px solid var(--ph-border); }
+.ph-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.ph-footer { border-top: 1px solid var(--ph-border); margin-top: 48px; padding: 16px 0; color: var(--ph-muted); font-size: .9rem; } 

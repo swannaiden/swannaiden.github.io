@@ -129,6 +129,18 @@ a:not(:has(> img)):hover::after {
   @include font-size(0.95rem);
 }
 
+/* Ensure symmetric spacing around the tile row */
+.section-sep {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Prevent margin-collapsing and keep the tiles centered between rules */
+.links {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
 @media (min-width: 500px){
   .links a {
     @include font-size(1rem)
@@ -159,11 +171,11 @@ a:not(:has(> img)):hover::after {
 // }
 
 div.header p{
-	line-height: 1.5;
-};
-div.paper p {
-	margin-bottom: 0px;
+		line-height: 1.5;
 }
+ div.paper p {
+		margin-bottom: 0px;
+ }
 
 div.research p{
 	margin-bottom: 1rem;

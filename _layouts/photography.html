@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ page.title | default: "Photography" }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="{{ '/assets/css/photography.css' | relative_url }}" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="ph-header">
+      <nav class="ph-nav">
+        <a class="ph-home" href="{{ '/' | relative_url }}">back</a>
+      </nav>
+    </header>
+    <div style="margin-bottom: 2.5rem;"></div>
+
+
+    <main class="ph-container">
+      {{ content }}
+    </main>
+
+    <footer class="ph-footer">
+      <div class="ph-container">
+        <small>&copy; {{ site.time | date: '%Y' }} Aiden Swann</small>
+      </div>
+    </footer>
+  </body>
+</html> 

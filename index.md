@@ -14,8 +14,8 @@ layout: default
             {% endfor %}
         </div>
     </div>
-    <hr />
-    <div class="row justify-content-center links text-center my-2">
+    <hr class="section-sep" />
+    <div class="row justify-content-center links text-center my-0">
         <div class="col-auto">
             <a data-target="highlights" class="content-button">Highlights</a>
         </div>
@@ -23,13 +23,13 @@ layout: default
             <a data-target="publications" class="content-button">Publications</a>
         </div>
         <div class="col-auto">
-            <a data-target="projects" class="content-button">Projects</a>
+            <a href="{{ '/photography/' | relative_url }}">Photography</a>
         </div>
         <div class="col-auto">
             <a data-target="social" class="content-button">Other</a>
         </div>
     </div>
-    <hr />
+    <hr class="section-sep" />
     <div class="row justify-content-center">
         <div class="col-12">
             <div id="highlights-container" class="content-section d-none"> {% include highlights.html %} </div>
