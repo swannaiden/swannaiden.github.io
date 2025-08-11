@@ -6,7 +6,7 @@
 
 title: Monterey
 description: Some shots from Monterey and the Monterey Bay Aquarium 
-date: 2020-07-01
+date: 2025-07-05
 cover_image: /images/photography/monterey/DSCF8489.JPG
 images_dir: /images/photography/monterey/
 ---

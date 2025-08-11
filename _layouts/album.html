@@ -26,14 +26,37 @@
 
         {% assign dir = page.images_dir | default: '' %}
         {% assign files = site.static_files | where_exp: 'file', 'file.path contains dir' %}
+        {% assign album_slug = page.title | downcase | replace: ' ', '-' | replace_regex: '[^a-z0-9\-]', '' %}
+        {% assign sizes = site.data.album_sizes[album_slug] %}
         <div id="gallery" class="pswp-gallery ph-grid">
           {% for file in files %}
-            {% assign ext = file.extname | downcase %}
-            {% if ext == '.jpg' or ext == '.jpeg' or ext == '.png' or ext == '.gif' or ext == '.webp' %}
-              <a href="{{ file.path | relative_url }}" target="_blank" rel="noreferrer" class="ph-thumb" data-pswp-width="1" data-pswp-height="1">
-                <img src="{{ file.path | relative_url }}" alt="{{ page.title }} photo {{ forloop.index }}" loading="lazy" />
-              </a>
-            {% endif %}
+            {% unless file.path contains '/thumbs/' %}
+              {% assign ext = file.extname | downcase %}
+              {% if ext == '.jpg' or ext == '.jpeg' or ext == '.png' or ext == '.gif' or ext == '.webp' %}
+                {% comment %}Optional filename prefix filtering{% endcomment %}
+                {% assign include_file = 1 %}
+                {% if page.filename_prefixes %}
+                  {% assign include_file = 0 %}
+                  {% for p in page.filename_prefixes %}
+                    {% assign l = p | size %}
+                    {% if file.name | slice: 0, l == p %}
+                      {% assign include_file = 1 %}
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+                {% if include_file == 1 %}
+                  {% assign filename = file.name %}
+                  {% assign dims = sizes[filename] %}
+                  {% assign w = dims.width | default: 0 %}
+                  {% assign h = dims.height | default: 0 %}
+                  {% assign thumb_name = filename | split: '.' | first | append: '.webp' %}
+                  {% assign thumb_url = dir | append: 'thumbs/' | append: thumb_name %}
+                  <a href="{{ file.path | relative_url }}" target="_blank" rel="noreferrer" class="ph-thumb" {% if w > 0 and h > 0 %}data-pswp-width="{{ w }}" data-pswp-height="{{ h }}"{% endif %}>
+                    <img src="{{ thumb_url | relative_url }}" alt="{{ page.title }} photo {{ forloop.index }}" loading="lazy" decoding="async" />
+                  </a>
+                {% endif %}
+              {% endif %}
+            {% endunless %}
           {% endfor %}
         </div>
       </article>
@@ -46,27 +69,13 @@
     </footer>
 
     <script type="module">
-      const anchors = Array.from(document.querySelectorAll('#gallery a'));
-      const preload = (a) => new Promise((resolve) => {
-        const img = new Image();
-        img.onload = () => {
-          a.dataset.pswpWidth = img.naturalWidth || 1;
-          a.dataset.pswpHeight = img.naturalHeight || 1;
-          resolve();
-        };
-        img.onerror = resolve;
-        img.src = a.getAttribute('href');
-      });
-
-      Promise.all(anchors.map(preload)).then(() => {
-        import('https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.js').then(({ default: PhotoSwipeLightbox }) => {
-          const lightbox = new PhotoSwipeLightbox({
-            gallery: '#gallery',
-            children: 'a',
-            pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.js')
-          });
-          lightbox.init();
+      import('https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.js').then(({ default: PhotoSwipeLightbox }) => {
+        const lightbox = new PhotoSwipeLightbox({
+          gallery: '#gallery',
+          children: 'a',
+          pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.js')
         });
+        lightbox.init();
       });
     </script>
   </body>

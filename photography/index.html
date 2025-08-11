@@ -8,10 +8,16 @@ title: Photography
     {% assign albums_list = site.albums | default: site.collections.albums.docs | default: empty %}
     {% assign albums_sorted = albums_list | sort: 'date' | reverse %}
     {% for album in albums_sorted %}
+      {% assign album_slug = album.title | downcase | replace: ' ', '-' | replace_regex: '[^a-z0-9\-]', '' %}
+      {% assign sizes = site.data.album_sizes[album_slug] %}
+      {% assign cover_name = album.cover_image | split: '/' | last %}
+      {% assign thumb_name = cover_name | split: '.' | first | append: '.webp' %}
+      {% assign album_dir = album.images_dir %}
+      {% assign cover_thumb = album_dir | append: 'thumbs/' | append: thumb_name %}
       <a class="ph-card" href="{{ album.url | relative_url }}">
         <div class="ph-card-image">
           {% if album.cover_image %}
-            <img src="{{ album.cover_image | relative_url }}" alt="{{ album.title }} cover" loading="lazy" />
+            <img src="{{ cover_thumb | relative_url }}" alt="{{ album.title }} cover" loading="lazy" decoding="async" />
           {% endif %}
         </div>
         <div class="ph-card-body">
