@@ -45,14 +45,16 @@ jobs:
         with:
           ruby-version: '3.3'
           bundler-cache: true
-
       - name: Build site
         run: bundle exec jekyll build --trace
 
-      # If you already deploy via Pages or another action, replace below accordingly
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        if: success()
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
+        id: deployment
+        uses: actions/deploy-pages@v4
