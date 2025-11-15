@@ -8,6 +8,7 @@ Gemfile.lock
 node_modules
 doc.txt
 gptquery.py
+build-instructions.txt
 
 # Generated thumbnails and album metadata
 images/**/thumbs/
