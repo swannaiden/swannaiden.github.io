@@ -5,7 +5,7 @@
 # cover_image should be a representative image (can be from the same folder).
 
 title: Monterey
-description: Some shots from Monterey and the Monterey Bay Aquarium 
+description: Shots from Monterey and the Monterey Bay Aquarium 
 date: 2025-07-05
 cover_image: /images/photography/monterey/DSCF8489.JPG
 images_dir: /images/photography/monterey/
