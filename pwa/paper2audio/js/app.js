@@ -876,7 +876,7 @@ class PDFToAudioApp {
      * @returns {Promise<boolean>} - true if confirmed, false if cancelled
      */
     async showCostConfirmation(style) {
-        const modelId = this.settings.aiModel || 'anthropic/claude-sonnet-4';
+        const modelId = this.settings.aiModel || 'anthropic/claude-sonnet-4.5';
         const estimate = OpenRouterAPI.estimateCost(this.sections, modelId, style);
 
         if (estimate.error) {
@@ -1084,7 +1084,7 @@ class PDFToAudioApp {
 
         // OpenRouter settings
         this.openrouterKeyInput.value = this.settings.openrouterKey || '';
-        this.modelSelect.value = this.settings.aiModel || 'anthropic/claude-sonnet-4';
+        this.modelSelect.value = this.settings.aiModel || 'anthropic/claude-sonnet-4.5';
 
         // Other settings
         document.querySelector(`input[name="summary-style"][value="${this.settings.summaryStyle || 'brief'}"]`).checked = true;
@@ -1183,7 +1183,7 @@ class PDFToAudioApp {
             openaiVoice: 'nova',
             openaiModel: 'tts-1',
             openrouterKey: '',
-            aiModel: 'anthropic/claude-sonnet-4',
+            aiModel: 'anthropic/claude-sonnet-4.5',
             summaryStyle: 'clean',
             autoPlay: true,
             highlightSentence: true,
@@ -1356,7 +1356,7 @@ class PDFToAudioApp {
      * Track OpenRouter usage for a summarization request
      */
     trackOpenRouterUsage(text, outputText) {
-        const model = this.settings.aiModel || 'anthropic/claude-sonnet-4';
+        const model = this.settings.aiModel || 'anthropic/claude-sonnet-4.5';
         const inputTokens = OpenRouterAPI.estimateTokens(text) + 200; // Add prompt overhead
         const outputTokens = OpenRouterAPI.estimateTokens(outputText);
         usageTracker.trackOpenRouter(model, inputTokens, outputTokens);

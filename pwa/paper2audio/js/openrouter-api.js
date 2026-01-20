@@ -7,7 +7,7 @@ export class OpenRouterAPI {
     constructor(apiKey = null) {
         this.apiKey = apiKey;
         this.baseUrl = 'https://openrouter.ai/api/v1';
-        this.model = 'anthropic/claude-sonnet-4'; // Default model
+        this.model = 'anthropic/claude-sonnet-4.5'; // Default model
         this.siteUrl = window.location.origin;
         this.siteName = 'PDF to Audio';
     }
@@ -18,56 +18,48 @@ export class OpenRouterAPI {
     static getAvailableModels() {
         return [
             {
-                id: 'openai/gpt-4.1',
-                name: 'GPT-4.1',
+                id: 'openai/gpt-5.2',
+                name: 'ChatGPT 5.2',
                 provider: 'OpenAI',
-                description: 'Latest GPT-4.1 model',
-                inputPrice: 2.00,  // $ per 1M input tokens
-                outputPrice: 8.00  // $ per 1M output tokens
+                description: 'Latest GPT-5.2 model',
+                inputPrice: 2.50,  // $ per 1M input tokens
+                outputPrice: 10.00  // $ per 1M output tokens
             },
             {
-                id: 'openai/o3',
-                name: 'OpenAI o3',
-                provider: 'OpenAI',
-                description: 'Advanced reasoning model',
-                inputPrice: 10.00,
-                outputPrice: 40.00
-            },
-            {
-                id: 'anthropic/claude-sonnet-4',
-                name: 'Claude 4 Sonnet',
+                id: 'anthropic/claude-sonnet-4.5',
+                name: 'Claude 4.5 Sonnet',
                 provider: 'Anthropic',
-                description: 'Fast and intelligent',
+                description: 'Best for coding and agents',
                 inputPrice: 3.00,
                 outputPrice: 15.00
             },
             {
-                id: 'anthropic/claude-opus-4',
-                name: 'Claude 4 Opus',
+                id: 'anthropic/claude-opus-4.5',
+                name: 'Claude 4.5 Opus',
                 provider: 'Anthropic',
-                description: 'Most capable Claude model',
-                inputPrice: 15.00,
-                outputPrice: 75.00
+                description: 'Frontier reasoning model',
+                inputPrice: 5.00,
+                outputPrice: 25.00
             },
             {
-                id: 'x-ai/grok-3',
-                name: 'Grok 3',
+                id: 'x-ai/grok-4',
+                name: 'Grok 4',
                 provider: 'xAI',
-                description: 'Latest Grok model',
+                description: 'Latest reasoning model',
                 inputPrice: 3.00,
                 outputPrice: 15.00
             },
             {
-                id: 'x-ai/grok-3-mini',
-                name: 'Grok 3 Mini',
+                id: 'x-ai/grok-4-fast',
+                name: 'Grok 4 Fast',
                 provider: 'xAI',
-                description: 'Faster, lighter Grok',
-                inputPrice: 0.30,
-                outputPrice: 0.50
+                description: 'Fast multimodal model',
+                inputPrice: 0.60,
+                outputPrice: 2.40
             },
             {
-                id: 'google/gemini-2.5-pro',
-                name: 'Gemini 2.5 Pro',
+                id: 'google/gemini-3-pro-preview',
+                name: 'Gemini 3 Pro',
                 provider: 'Google',
                 description: 'Google\'s flagship model',
                 inputPrice: 1.25,
