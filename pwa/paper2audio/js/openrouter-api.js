@@ -371,10 +371,10 @@ Guidelines:
      * @param {Array} sections - Array of sections with title and text
      * @param {string} style - 'brief' or 'detailed'
      * @param {Function} onProgress - Progress callback (completed, total, section)
-     * @param {number} concurrency - Max concurrent requests (default: 5)
+     * @param {number} concurrency - Max concurrent requests (default: 10)
      * @returns {Promise<Array>} Array of summarized sections
      */
-    async summarizeSections(sections, style = 'brief', onProgress = () => {}, concurrency = 5) {
+    async summarizeSections(sections, style = 'brief', onProgress = () => {}, concurrency = 10) {
         const results = new Array(sections.length);
         let completedCount = 0;
         const total = sections.length;

@@ -473,10 +473,10 @@ export class TextToSpeech {
      * Generate audio for multiple texts and combine into single file (parallel)
      * @param {Array<string>} texts - Array of texts to convert
      * @param {Function} onProgress - Progress callback (current, total)
-     * @param {number} concurrency - Max concurrent requests (default: 3)
+     * @param {number} concurrency - Max concurrent requests (default: 10)
      * @returns {Promise<Blob>} - Combined audio blob
      */
-    async generateFullAudio(texts, onProgress = null, concurrency = 3) {
+    async generateFullAudio(texts, onProgress = null, concurrency = 10) {
         if (this.provider !== 'openai') {
             throw new Error('Audio download is only available with OpenAI TTS. Please enable OpenAI TTS in settings.');
         }

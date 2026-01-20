@@ -27,12 +27,21 @@
                     </svg>
                     PDF to Audio
                 </h1>
-                <button id="settings-btn" class="icon-btn" title="Settings">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="3"/>
-                        <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
-                    </svg>
-                </button>
+                <div class="header-buttons">
+                    <button id="usage-btn" class="icon-btn" title="API Usage">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 20V10"/>
+                            <path d="M18 20V4"/>
+                            <path d="M6 20v-4"/>
+                        </svg>
+                    </button>
+                    <button id="settings-btn" class="icon-btn" title="Settings">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </header>
 
@@ -346,6 +355,102 @@
                 </div>
                 <div class="modal-footer">
                     <button id="save-settings" class="btn btn-primary">Save Settings</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Usage Modal -->
+        <div id="usage-modal" class="modal hidden">
+            <div class="modal-backdrop"></div>
+            <div class="modal-content usage-modal-content">
+                <div class="modal-header">
+                    <h2>API Usage</h2>
+                    <button id="close-usage" class="icon-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"/>
+                            <line x1="6" y1="6" x2="18" y2="18"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- OpenRouter Usage -->
+                    <div class="usage-section">
+                        <h3>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                                <line x1="9" y1="9" x2="9.01" y2="9"/>
+                                <line x1="15" y1="9" x2="15.01" y2="9"/>
+                            </svg>
+                            OpenRouter (Summarization)
+                        </h3>
+                        <div class="usage-stats" id="openrouter-usage">
+                            <div class="usage-stat">
+                                <span class="stat-label">Total Requests</span>
+                                <span class="stat-value" id="or-requests">0</span>
+                            </div>
+                            <div class="usage-stat">
+                                <span class="stat-label">Input Tokens</span>
+                                <span class="stat-value" id="or-input-tokens">0</span>
+                            </div>
+                            <div class="usage-stat">
+                                <span class="stat-label">Output Tokens</span>
+                                <span class="stat-value" id="or-output-tokens">0</span>
+                            </div>
+                            <div class="usage-stat total">
+                                <span class="stat-label">Estimated Cost</span>
+                                <span class="stat-value cost" id="or-cost">$0.00</span>
+                            </div>
+                        </div>
+                        <div class="usage-breakdown" id="or-breakdown">
+                            <!-- Model breakdown will be populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- OpenAI TTS Usage -->
+                    <div class="usage-section">
+                        <h3>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                                <line x1="12" y1="19" x2="12" y2="23"/>
+                                <line x1="8" y1="23" x2="16" y2="23"/>
+                            </svg>
+                            OpenAI TTS (Audio)
+                        </h3>
+                        <div class="usage-stats" id="openai-usage">
+                            <div class="usage-stat">
+                                <span class="stat-label">Total Requests</span>
+                                <span class="stat-value" id="oa-requests">0</span>
+                            </div>
+                            <div class="usage-stat">
+                                <span class="stat-label">Characters Processed</span>
+                                <span class="stat-value" id="oa-characters">0</span>
+                            </div>
+                            <div class="usage-stat total">
+                                <span class="stat-label">Estimated Cost</span>
+                                <span class="stat-value cost" id="oa-cost">$0.00</span>
+                            </div>
+                        </div>
+                        <div class="usage-breakdown" id="oa-breakdown">
+                            <!-- Model breakdown will be populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Grand Total -->
+                    <div class="usage-total">
+                        <span class="total-label">Total Estimated Cost</span>
+                        <span class="total-value" id="total-cost">$0.00</span>
+                    </div>
+
+                    <p class="usage-note">
+                        Usage is tracked locally in your browser and resets when you clear site data.
+                        <span id="last-updated"></span>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button id="reset-usage" class="btn btn-secondary">Reset Usage</button>
+                    <button id="close-usage-btn" class="btn btn-primary">Close</button>
                 </div>
             </div>
         </div>

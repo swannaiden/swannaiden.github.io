@@ -6,6 +6,7 @@
 import { PDFParser } from './pdf-parser.js';
 import { TextToSpeech } from './tts.js';
 import { OpenRouterAPI } from './openrouter-api.js';
+import { usageTracker, UsageTracker } from './usage-tracker.js';
 
 class PDFToAudioApp {
     constructor() {
@@ -103,6 +104,13 @@ class PDFToAudioApp {
 
         // Toast container
         this.toastContainer = document.getElementById('toast-container');
+
+        // Usage modal
+        this.usageBtn = document.getElementById('usage-btn');
+        this.usageModal = document.getElementById('usage-modal');
+        this.closeUsageBtn = document.getElementById('close-usage');
+        this.closeUsageBtnFooter = document.getElementById('close-usage-btn');
+        this.resetUsageBtn = document.getElementById('reset-usage');
     }
 
     /**
@@ -169,6 +177,13 @@ class PDFToAudioApp {
         // API key visibility toggles
         this.setupApiKeyToggle('toggle-openai-key', 'openai-key-input');
         this.setupApiKeyToggle('toggle-openrouter-key', 'openrouter-key-input');
+
+        // Usage modal
+        this.usageBtn.addEventListener('click', () => this.openUsageModal());
+        this.closeUsageBtn.addEventListener('click', () => this.closeUsageModal());
+        this.closeUsageBtnFooter.addEventListener('click', () => this.closeUsageModal());
+        this.resetUsageBtn.addEventListener('click', () => this.resetUsage());
+        this.usageModal.querySelector('.modal-backdrop').addEventListener('click', () => this.closeUsageModal());
 
         // Keyboard shortcuts
         document.addEventListener('keydown', (e) => {
@@ -632,6 +647,11 @@ class PDFToAudioApp {
         this.updatePlayPauseButton();
         this.renderSectionsList();
 
+        // Track TTS usage if using OpenAI TTS
+        if (this.settings.ttsProvider === 'openai') {
+            this.trackOpenAIUsage(text);
+        }
+
         try {
             await this.tts.speak(text);
         } catch (error) {
@@ -689,6 +709,10 @@ class PDFToAudioApp {
                     const text = this.getSectionText(section);
                     return TextToSpeech.preprocessText(text);
                 });
+
+            // Track TTS usage for all texts (join all texts to get total character count)
+            const allText = texts.join(' ');
+            this.trackOpenAIUsage(allText);
 
             // Generate full audio with progress updates
             const audioBlob = await this.tts.generateFullAudio(texts, (current, total) => {
@@ -950,6 +974,11 @@ class PDFToAudioApp {
                         sectionTitle = sectionTitle.substring(0, 37) + '...';
                     }
                     this.updateSummarizationProgress(current, total, `Summarizing: ${sectionTitle}`);
+
+                    // Track usage for successful summarizations
+                    if (summarizedSection.summary && !summarizedSection.summaryError) {
+                        this.trackOpenRouterUsage(summarizedSection.text, summarizedSection.summary);
+                    }
                 }
             );
 
@@ -1231,14 +1260,123 @@ class PDFToAudioApp {
     }
 
     /**
+     * Open usage modal and update display
+     */
+    openUsageModal() {
+        this.updateUsageDisplay();
+        this.usageModal.classList.remove('hidden');
+    }
+
+    /**
+     * Close usage modal
+     */
+    closeUsageModal() {
+        this.usageModal.classList.add('hidden');
+    }
+
+    /**
+     * Reset usage statistics
+     */
+    resetUsage() {
+        if (confirm('Are you sure you want to reset all usage statistics?')) {
+            usageTracker.reset();
+            this.updateUsageDisplay();
+            this.showToast('Usage statistics reset', 'success');
+        }
+    }
+
+    /**
+     * Update the usage display in the modal
+     */
+    updateUsageDisplay() {
+        const openrouterSummary = usageTracker.getOpenRouterSummary();
+        const openaiSummary = usageTracker.getOpenAISummary();
+        const costs = usageTracker.calculateCosts(OpenRouterAPI.getAvailableModels());
+
+        // Update OpenRouter stats
+        document.getElementById('or-requests').textContent = UsageTracker.formatNumber(openrouterSummary.totalRequests);
+        document.getElementById('or-input-tokens').textContent = UsageTracker.formatNumber(openrouterSummary.totalInputTokens);
+        document.getElementById('or-output-tokens').textContent = UsageTracker.formatNumber(openrouterSummary.totalOutputTokens);
+        document.getElementById('or-cost').textContent = UsageTracker.formatCost(costs.openrouter.total);
+
+        // Update OpenAI stats
+        document.getElementById('oa-requests').textContent = UsageTracker.formatNumber(openaiSummary.totalRequests);
+        document.getElementById('oa-characters').textContent = UsageTracker.formatNumber(openaiSummary.totalCharacters);
+        document.getElementById('oa-cost').textContent = UsageTracker.formatCost(costs.openai.total);
+
+        // Update total cost
+        document.getElementById('total-cost').textContent = UsageTracker.formatCost(costs.grandTotal);
+
+        // Update OpenRouter breakdown
+        const orBreakdown = document.getElementById('or-breakdown');
+        if (Object.keys(costs.openrouter.byModel).length > 0) {
+            let html = '<div class="breakdown-title">By Model</div>';
+            for (const [modelId, data] of Object.entries(costs.openrouter.byModel)) {
+                html += `
+                    <div class="breakdown-item">
+                        <span class="model-name">${data.name}</span>
+                        <span class="model-cost">${UsageTracker.formatCost(data.totalCost)}</span>
+                    </div>
+                `;
+            }
+            orBreakdown.innerHTML = html;
+        } else {
+            orBreakdown.innerHTML = '';
+        }
+
+        // Update OpenAI breakdown
+        const oaBreakdown = document.getElementById('oa-breakdown');
+        if (Object.keys(costs.openai.byModel).length > 0) {
+            let html = '<div class="breakdown-title">By Model</div>';
+            for (const [model, data] of Object.entries(costs.openai.byModel)) {
+                html += `
+                    <div class="breakdown-item">
+                        <span class="model-name">${data.name}</span>
+                        <span class="model-cost">${UsageTracker.formatCost(data.cost)}</span>
+                    </div>
+                `;
+            }
+            oaBreakdown.innerHTML = html;
+        } else {
+            oaBreakdown.innerHTML = '';
+        }
+
+        // Update last updated time
+        const lastUpdated = usageTracker.getLastUpdated();
+        const lastUpdatedEl = document.getElementById('last-updated');
+        if (lastUpdated) {
+            const date = new Date(lastUpdated);
+            lastUpdatedEl.textContent = `Last updated: ${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+        } else {
+            lastUpdatedEl.textContent = '';
+        }
+    }
+
+    /**
+     * Track OpenRouter usage for a summarization request
+     */
+    trackOpenRouterUsage(text, outputText) {
+        const model = this.settings.aiModel || 'anthropic/claude-sonnet-4';
+        const inputTokens = OpenRouterAPI.estimateTokens(text) + 200; // Add prompt overhead
+        const outputTokens = OpenRouterAPI.estimateTokens(outputText);
+        usageTracker.trackOpenRouter(model, inputTokens, outputTokens);
+    }
+
+    /**
+     * Track OpenAI TTS usage
+     */
+    trackOpenAIUsage(text) {
+        const model = this.settings.openaiModel || 'tts-1';
+        usageTracker.trackOpenAI(model, text.length);
+    }
+
+    /**
      * Register service worker for PWA
      */
     async registerServiceWorker() {
         if ('serviceWorker' in navigator) {
             try {
-                const registration = await navigator.serviceWorker.register('/pwa/paper2audio/service-worker.js', {
-                    scope: '/pwa/paper2audio/'
-                });
+                const registration = await navigator.serviceWorker.register('/pwa/paper2audio/service-worker.js');
                 console.log('Service Worker registered:', registration.scope);
             } catch (error) {
                 console.log('Service Worker registration failed:', error);
