@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Convert PDF documents to audio with optional AI summarization">
+    <meta name="theme-color" content="#6366f1">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon.svg">
+    <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+
+    <title>PDF to Audio - Convert Papers to Speech</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18V5l12-2v13"/>
+                        <circle cx="6" cy="18" r="3"/>
+                        <circle cx="18" cy="16" r="3"/>
+                    </svg>
+                    PDF to Audio
+                </h1>
+                <button id="settings-btn" class="icon-btn" title="Settings">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section id="upload-section" class="section upload-section">
+                <div class="upload-area" id="drop-zone">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="12" y1="18" x2="12" y2="12"/>
+                        <line x1="9" y1="15" x2="12" y2="12"/>
+                        <line x1="15" y1="15" x2="12" y2="12"/>
+                    </svg>
+                    <h2>Drop your PDF here</h2>
+                    <p>or click to browse</p>
+                    <input type="file" id="file-input" accept=".pdf" hidden>
+                </div>
+                <p class="upload-hint">Supports academic papers, articles, and documents</p>
+            </section>
+
+            <!-- Processing Section -->
+            <section id="processing-section" class="section processing-section hidden">
+                <div class="processing-card">
+                    <div class="spinner"></div>
+                    <h3 id="processing-status">Processing PDF...</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <p id="processing-detail">Extracting text from document</p>
+                </div>
+            </section>
+
+            <!-- Document Section -->
+            <section id="document-section" class="section document-section hidden">
+                <!-- Document Header -->
+                <div class="document-header">
+                    <div class="document-info">
+                        <h2 id="document-title">Document Title</h2>
+                        <p id="document-meta">12 sections • ~15 min reading time</p>
+                    </div>
+                    <div class="document-actions">
+                        <button id="download-audio-btn" class="btn btn-primary">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            Download MP3
+                        </button>
+                        <button id="new-document-btn" class="btn btn-secondary">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="12" y1="18" x2="12" y2="12"/>
+                                <line x1="9" y1="15" x2="12" y2="12"/>
+                                <line x1="15" y1="15" x2="12" y2="12"/>
+                            </svg>
+                            New PDF
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mode Toggle -->
+                <div class="mode-toggle">
+                    <button id="mode-full" class="mode-btn active" data-mode="full">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                        Full Text
+                    </button>
+                    <button id="mode-summary" class="mode-btn" data-mode="summary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 6h16M4 12h10"/>
+                        </svg>
+                        Summarized
+                    </button>
+                </div>
+
+                <!-- API Key Notice -->
+                <div id="api-notice" class="api-notice hidden">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="12"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                    <span>Summarization requires a Claude API key. <button id="open-settings-link" class="link-btn">Add it in settings</button></span>
+                </div>
+
+                <!-- Player Controls -->
+                <div class="player-controls">
+                    <div class="player-main">
+                        <button id="play-pause-btn" class="play-btn" title="Play/Pause">
+                            <svg id="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3"/>
+                            </svg>
+                            <svg id="pause-icon" viewBox="0 0 24 24" fill="currentColor" class="hidden">
+                                <rect x="6" y="4" width="4" height="16"/>
+                                <rect x="14" y="4" width="4" height="16"/>
+                            </svg>
+                        </button>
+                        <button id="stop-btn" class="control-btn" title="Stop">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <rect x="4" y="4" width="16" height="16" rx="2"/>
+                            </svg>
+                        </button>
+                        <button id="prev-section-btn" class="control-btn" title="Previous Section">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="19 20 9 12 19 4 19 20"/>
+                                <line x1="5" y1="19" x2="5" y2="5" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </button>
+                        <button id="next-section-btn" class="control-btn" title="Next Section">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 4 15 12 5 20 5 4"/>
+                                <line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="player-secondary">
+                        <div class="speed-control">
+                            <label for="speed-select">Speed:</label>
+                            <select id="speed-select">
+                                <option value="0.5">0.5x</option>
+                                <option value="0.75">0.75x</option>
+                                <option value="1" selected>1x</option>
+                                <option value="1.25">1.25x</option>
+                                <option value="1.5">1.5x</option>
+                                <option value="2">2x</option>
+                            </select>
+                        </div>
+                        <div class="voice-control">
+                            <label for="voice-select">Voice:</label>
+                            <select id="voice-select">
+                                <option value="">Default</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sections List -->
+                <div class="sections-container">
+                    <h3>Sections</h3>
+                    <div id="summarization-progress" class="summarization-progress hidden">
+                        <div class="progress-info">
+                            <span id="progress-text">Summarizing...</span>
+                            <span id="progress-count">0/0</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div id="summarization-progress-fill" class="progress-bar-fill"></div>
+                        </div>
+                    </div>
+                    <div id="sections-list" class="sections-list">
+                        <!-- Sections will be populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Current Section Display -->
+                <div class="current-section-display">
+                    <h3>Now Playing</h3>
+                    <div id="current-text" class="current-text">
+                        <p class="placeholder-text">Select a section or press play to begin</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Settings Modal -->
+        <div id="settings-modal" class="modal hidden">
+            <div class="modal-backdrop"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Settings</h2>
+                    <button id="close-settings" class="icon-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"/>
+                            <line x1="6" y1="6" x2="18" y2="18"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- TTS Provider Section -->
+                    <div class="setting-group">
+                        <label>Text-to-Speech Provider</label>
+                        <p class="setting-description">Choose how audio is generated</p>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="tts-provider" value="browser" checked>
+                                <span>Browser (Free) - Uses system voices</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="tts-provider" value="openai">
+                                <span>OpenAI TTS (Realistic) - Requires API key</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- OpenAI TTS Settings -->
+                    <div id="openai-tts-settings" class="setting-group hidden">
+                        <label for="openai-key-input">OpenAI API Key</label>
+                        <p class="setting-description">Get your key from <a href="https://platform.openai.com/api-keys" target="_blank">platform.openai.com</a></p>
+                        <div class="api-key-input-group">
+                            <input type="password" id="openai-key-input" placeholder="sk-...">
+                            <button id="toggle-openai-key" class="icon-btn" title="Show/Hide">
+                                <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="setting-row" style="margin-top: 0.75rem;">
+                            <label for="openai-voice-select">Voice:</label>
+                            <select id="openai-voice-select">
+                                <option value="alloy">Alloy (Neutral)</option>
+                                <option value="echo">Echo (Warm)</option>
+                                <option value="fable">Fable (Storytelling)</option>
+                                <option value="onyx">Onyx (Deep)</option>
+                                <option value="nova" selected>Nova (Friendly)</option>
+                                <option value="shimmer">Shimmer (Gentle)</option>
+                            </select>
+                        </div>
+                        <div class="setting-row">
+                            <label for="openai-model-select">Quality:</label>
+                            <select id="openai-model-select">
+                                <option value="tts-1">Standard (Faster)</option>
+                                <option value="tts-1-hd">HD (Better quality)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- OpenRouter Settings -->
+                    <div class="setting-group">
+                        <label for="openrouter-key-input">OpenRouter API Key</label>
+                        <p class="setting-description">Required for AI summarization. Get your key from <a href="https://openrouter.ai/keys" target="_blank">openrouter.ai</a></p>
+                        <div class="api-key-input-group">
+                            <input type="password" id="openrouter-key-input" placeholder="sk-or-...">
+                            <button id="toggle-openrouter-key" class="icon-btn" title="Show/Hide">
+                                <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Model Selection -->
+                    <div class="setting-group">
+                        <label for="model-select">AI Model for Summarization</label>
+                        <p class="setting-description">Choose which model to use for generating summaries</p>
+                        <select id="model-select" class="full-width-select">
+                            <optgroup label="OpenAI">
+                                <option value="openai/gpt-4.1">GPT-4.1</option>
+                                <option value="openai/o3">OpenAI o3 (Reasoning)</option>
+                            </optgroup>
+                            <optgroup label="Anthropic">
+                                <option value="anthropic/claude-sonnet-4" selected>Claude 4 Sonnet (Recommended)</option>
+                                <option value="anthropic/claude-opus-4">Claude 4 Opus (Most capable)</option>
+                            </optgroup>
+                            <optgroup label="xAI">
+                                <option value="x-ai/grok-3">Grok 3</option>
+                                <option value="x-ai/grok-3-mini">Grok 3 Mini (Faster)</option>
+                            </optgroup>
+                            <optgroup label="Google">
+                                <option value="google/gemini-2.5-pro">Gemini 2.5 Pro</option>
+                            </optgroup>
+                            <optgroup label="Meta">
+                                <option value="meta-llama/llama-4-70b">Llama 4 70B (Open source)</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <!-- Summarization Style -->
+                    <div class="setting-group">
+                        <label>Summarized Mode Style</label>
+                        <p class="setting-description">Choose how text is processed in Summarized mode</p>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="summary-style" value="clean" checked>
+                                <span>Clean Text (No API) - Removes citations, equations, figure refs</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="summary-style" value="brief">
+                                <span>Brief Summary - AI-generated key points only</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="summary-style" value="detailed">
+                                <span>Detailed Summary - AI-generated comprehensive summary</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Playback Settings -->
+                    <div class="setting-group">
+                        <label>Playback Settings</label>
+                        <div class="setting-row">
+                            <span>Auto-play next section</span>
+                            <label class="toggle">
+                                <input type="checkbox" id="auto-play-toggle" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-row">
+                            <span>Highlight current sentence</span>
+                            <label class="toggle">
+                                <input type="checkbox" id="highlight-toggle" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="save-settings" class="btn btn-primary">Save Settings</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notifications -->
+        <div id="toast-container" class="toast-container"></div>
+    </div>
+
+    <!-- PDF.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    </script>
+
+    <!-- App Modules -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

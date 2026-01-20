@@ -1,0 +1,54 @@
+{
+    "name": "PDF to Audio",
+    "short_name": "PDF Audio",
+    "description": "Convert PDF documents to audio with AI summarization",
+    "start_url": "/pwa/paper2audio/",
+    "display": "standalone",
+    "background_color": "#0f172a",
+    "theme_color": "#6366f1",
+    "orientation": "any",
+    "scope": "/pwa/paper2audio/",
+    "icons": [
+        {
+            "src": "icons/icon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        },
+        {
+            "src": "icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": ["productivity", "utilities", "education"],
+    "screenshots": [],
+    "shortcuts": [
+        {
+            "name": "Upload PDF",
+            "short_name": "Upload",
+            "description": "Upload a new PDF document",
+            "url": "/pwa/paper2audio/?action=upload"
+        }
+    ],
+    "share_target": {
+        "action": "/pwa/paper2audio/",
+        "method": "POST",
+        "enctype": "multipart/form-data",
+        "params": {
+            "files": [
+                {
+                    "name": "pdf",
+                    "accept": ["application/pdf", ".pdf"]
+                }
+            ]
+        }
+    }
+}
