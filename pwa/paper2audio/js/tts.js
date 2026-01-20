@@ -470,12 +470,13 @@ export class TextToSpeech {
     }
 
     /**
-     * Generate audio for multiple texts and combine into single file
+     * Generate audio for multiple texts and combine into single file (parallel)
      * @param {Array<string>} texts - Array of texts to convert
      * @param {Function} onProgress - Progress callback (current, total)
+     * @param {number} concurrency - Max concurrent requests (default: 3)
      * @returns {Promise<Blob>} - Combined audio blob
      */
-    async generateFullAudio(texts, onProgress = null) {
+    async generateFullAudio(texts, onProgress = null, concurrency = 3) {
         if (this.provider !== 'openai') {
             throw new Error('Audio download is only available with OpenAI TTS. Please enable OpenAI TTS in settings.');
         }
@@ -484,23 +485,60 @@ export class TextToSpeech {
             throw new Error('OpenAI API key not set. Please add your API key in settings.');
         }
 
-        const audioBlobs = [];
+        const results = new Array(texts.length);
+        let completedCount = 0;
         const total = texts.length;
 
-        for (let i = 0; i < texts.length; i++) {
-            const text = texts[i];
+        // Process a single text
+        const processText = async (text, index) => {
             if (text && text.trim().length > 0) {
-                const blob = await this.generateAudio(text);
-                audioBlobs.push(blob);
+                try {
+                    const blob = await this.generateAudio(text);
+                    results[index] = blob;
+                } catch (error) {
+                    console.warn(`Failed to generate audio for section ${index}:`, error);
+                    results[index] = null;
+                }
+            } else {
+                results[index] = null;
             }
 
+            completedCount++;
             if (onProgress) {
-                onProgress(i + 1, total);
+                onProgress(completedCount, total);
+            }
+        };
+
+        // Process texts with concurrency limit
+        await this.parallelLimit(
+            texts.map((text, index) => () => processText(text, index)),
+            concurrency
+        );
+
+        // Filter out null results and combine in order
+        const audioBlobs = results.filter(blob => blob !== null);
+        return new Blob(audioBlobs, { type: 'audio/mpeg' });
+    }
+
+    /**
+     * Execute async functions in parallel with concurrency limit
+     * @param {Array<Function>} tasks - Array of async functions to execute
+     * @param {number} limit - Max concurrent executions
+     * @returns {Promise<void>}
+     */
+    async parallelLimit(tasks, limit) {
+        const executing = new Set();
+
+        for (const task of tasks) {
+            const promise = task().then(() => executing.delete(promise));
+            executing.add(promise);
+
+            if (executing.size >= limit) {
+                await Promise.race(executing);
             }
         }
 
-        // Combine all audio blobs into one
-        return new Blob(audioBlobs, { type: 'audio/mpeg' });
+        await Promise.all(executing);
     }
 
     /**

@@ -367,18 +367,20 @@ Guidelines:
     }
 
     /**
-     * Summarize multiple sections
+     * Summarize multiple sections in parallel with concurrency limit
      * @param {Array} sections - Array of sections with title and text
      * @param {string} style - 'brief' or 'detailed'
-     * @param {Function} onProgress - Progress callback (index, total, summary)
+     * @param {Function} onProgress - Progress callback (completed, total, section)
+     * @param {number} concurrency - Max concurrent requests (default: 5)
      * @returns {Promise<Array>} Array of summarized sections
      */
-    async summarizeSections(sections, style = 'brief', onProgress = () => {}) {
-        const summarized = [];
+    async summarizeSections(sections, style = 'brief', onProgress = () => {}, concurrency = 5) {
+        const results = new Array(sections.length);
+        let completedCount = 0;
+        const total = sections.length;
 
-        for (let i = 0; i < sections.length; i++) {
-            const section = sections[i];
-
+        // Process a single section
+        const processSection = async (section, index) => {
             try {
                 const rawResponse = await this.summarize(section.text, style, section.title);
                 const parsed = this.parseResponse(rawResponse);
@@ -386,36 +388,59 @@ Guidelines:
                 const summaryText = parsed.summary || '';
                 const summarizedSection = {
                     ...section,
-                    // Use AI-provided title if available, otherwise keep original
                     title: parsed.title || section.title,
-                    originalTitle: section.title, // Keep original for reference
+                    originalTitle: section.title,
                     summary: parsed.isSkipped ? null : summaryText,
                     summarySkipped: parsed.isSkipped,
                     summaryWordCount: parsed.isSkipped ? 0 : summaryText.split(/\s+/).length,
                     summaryEstimatedDuration: parsed.isSkipped ? 0 : Math.round((summaryText.split(/\s+/).length / 150) * 60)
                 };
 
-                summarized.push(summarizedSection);
-                onProgress(i + 1, sections.length, summarizedSection);
-
-                // Add a small delay between API calls to avoid rate limiting
-                if (i < sections.length - 1) {
-                    await this.delay(300);
-                }
+                results[index] = summarizedSection;
+                completedCount++;
+                onProgress(completedCount, total, summarizedSection);
             } catch (error) {
                 console.warn(`Failed to summarize section ${section.title}:`, error);
 
-                summarized.push({
+                const errorSection = {
                     ...section,
                     summary: null,
                     summaryError: error.message
-                });
+                };
+                results[index] = errorSection;
+                completedCount++;
+                onProgress(completedCount, total, errorSection);
+            }
+        };
 
-                onProgress(i + 1, sections.length, { ...section, summaryError: error.message });
+        // Process sections with concurrency limit
+        await this.parallelLimit(
+            sections.map((section, index) => () => processSection(section, index)),
+            concurrency
+        );
+
+        return results;
+    }
+
+    /**
+     * Execute async functions in parallel with concurrency limit
+     * @param {Array<Function>} tasks - Array of async functions to execute
+     * @param {number} limit - Max concurrent executions
+     * @returns {Promise<void>}
+     */
+    async parallelLimit(tasks, limit) {
+        const executing = new Set();
+
+        for (const task of tasks) {
+            const promise = task().then(() => executing.delete(promise));
+            executing.add(promise);
+
+            if (executing.size >= limit) {
+                await Promise.race(executing);
             }
         }
 
-        return summarized;
+        await Promise.all(executing);
     }
 
     /**
