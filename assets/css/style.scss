@@ -14,9 +14,8 @@ footer {
 }
 
 .gradient {
-	 background-image: linear-gradient(to right top, #fffff1, #fdfcff, #faf9ff, #f7f7ff, #f4f4ff, #f0f5ff, #ebf5ff, #e7f6ff, #e4f9fe, #e5fcfa, #e9fef5, #f0fff0);
-	min-height: 100vh; 
-  background-attachment: fixed;
+  background-color: #ffffff;
+  min-height: 100vh;
 }
 
 .paper {
@@ -115,7 +114,7 @@ a:not(:has(> img))::after {
   bottom: .07em;
   height: .1em;
   width: 100%;
-  background: linear-gradient(110deg, #6395F9, #6FF6B2);
+  background: linear-gradient(110deg, #5B7FD6, #4FB3A9);
   z-index: -1;
   transition: height .25s cubic-bezier(.6,0,.4,1);
 }

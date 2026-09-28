@@ -9,9 +9,11 @@
     </div>
     <div class="row justify-content-center py-3">
 
+        {% if paper.image %}
         <div class="col-8 col-md-4 align-items-center my-auto py-3">
             <img class="img-fluid" src="{{paper.image}}" />
         </div>
+        {% endif %}
 
         <div class="col-10 col-md-8 paper my-auto">
             <p><b>{{paper.title}}</b></p> 
